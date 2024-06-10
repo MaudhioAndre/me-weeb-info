@@ -1,0 +1,36 @@
+.web_name{
+    font-size: 1.5rem !important;
+    line-height: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: white;
+  }
+  .text_gradient{
+    background: -webkit-linear-gradient(1turn, #4ade80, #3b82f6, #9333ea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+.div_footer{
+    display: flex;
+    background-color: black;
+    color: white;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+    div:last-child{
+        font-size: 13px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .div_footer{
+        display: block;
+        text-align: center;
+        div:last-child{
+            font-size: 13px;
+            margin-top: 20px;
+        }
+    }
+  }
