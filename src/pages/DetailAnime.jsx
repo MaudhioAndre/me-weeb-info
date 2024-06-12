@@ -33,7 +33,11 @@ export default function DetailAnime() {
             keyword={
               "Anime, Anime Info, Anime Wiki, Anime Detail, Anime Synopsis, Anime Information, Anime Trailer"
             }
-            description={`Dive into the world of ${anime.title_english}, Get ready for ${anime.genres.map(data => data.name)} in this captivating story!`}
+            description={`Dive into the world of ${
+              anime.title_english
+            }, Get ready for ${anime.genres.map(
+              (data) => data.name
+            )} in this captivating story!`}
           />
 
           <section className="div-c-detail-anime">
@@ -81,19 +85,21 @@ export default function DetailAnime() {
               </div>
             </aside>
           </section>
-          <section className="trailer-anime">
-            <h3>Trailer</h3>
-            <iframe
-              width="100%"
-              height="500px"
-              src={anime.trailer.embed_url}
-              title="YouTube video player"
-              // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              className="rounded-lg shadow-lg"
-            ></iframe>
-          </section>
+          {anime.trailer.youtube_id !== null && (
+            <section className="trailer-anime">
+              <h3>Trailer</h3>
+              <iframe
+                width="100%"
+                height="500px"
+                src={anime.trailer.embed_url}
+                title="YouTube video player"
+                // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="rounded-lg shadow-lg"
+              ></iframe>
+            </section>
+          )}
         </>
       )}
     </>

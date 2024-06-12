@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 
+import HelmetComponent from "../components/HelmetComponent";
+
 export default function DetailCharacters() {
   const { id } = useParams();
   const [anime, setAnime] = useState(null);
@@ -23,19 +25,28 @@ export default function DetailCharacters() {
     fetchAnime();
   }, [id]);
 
+  
+
   return (
     <>
       {anime && (
         <>
-          <div className="div-c-detail-anime">
-            <div>
+        <HelmetComponent
+            title={`MeWeeb | ${anime.name} | Character Detail`}
+            keyword={
+            `${anime.name}, Character, Character Info, Character Wiki, Character Detail, Character About, Character Information`
+            }
+            description={`${anime.name} `}
+          />
+          <section className="div-c-detail-anime">
+            <figure>
               <img
                 src={anime.images.jpg.image_url}
-                alt={anime.title}
+                alt={anime.name}
                 className="img-detail-anime"
               />
-            </div>
-            <div className="div-info-anime">
+            </figure>
+            <aside className="div-info-anime">
               <h1>{anime.name}</h1>
               <h1>{anime.name_kanji}</h1>
               <div className="anime-desc">{anime.about}</div>
@@ -54,8 +65,8 @@ export default function DetailCharacters() {
                 </div>
                 
               </div>
-            </div>
-          </div>
+            </aside>
+          </section>
         </>
       )}
     </>

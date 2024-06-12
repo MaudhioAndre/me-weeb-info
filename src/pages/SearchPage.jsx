@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import HelmetComponent from "../components/HelmetComponent";
 
 const useQuery = () => {
   return new URLSearchParams(useLocation().search);
-};
-
-const truncateTitle = (title, maxLength) => {
-  if (title.length > maxLength) {
-    return title.substring(0, maxLength - 3) + "...";
-  }
-  return title;
 };
 
 export default function SearchPage() {
@@ -43,6 +37,13 @@ export default function SearchPage() {
 
   return (
     <>
+      <HelmetComponent
+        title={`MeWeeb | Search Results ${searchQuery} | Anime Search`}
+        keyword={
+          "Anime, Anime Info, Anime Wiki, Anime Detail, Anime Synopsis, Anime Information, Anime Trailer"
+        }
+        description={`Anime Search`}
+      />
       <center>
         <h2>
           <b>Search Results for "{searchQuery}"</b>
@@ -50,7 +51,7 @@ export default function SearchPage() {
       </center>
       <br />
       <br />
-      <div className="div_content">
+      <section className="div_content">
         {searchResults &&
           searchResults.map((data, i) => (
             <Link to={`/anime/${data.mal_id}`}>
@@ -58,11 +59,11 @@ export default function SearchPage() {
                 className="img_content"
                 style={{ backgroundImage: `url(${data.images.jpg.image_url})` }}
               >
-                <div>{data.title}</div>
+                <h6>{data.title}</h6>
               </div>
             </Link>
           ))}
-      </div>
+      </section>
     </>
   );
 }

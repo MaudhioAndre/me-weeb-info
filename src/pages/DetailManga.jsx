@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import HelmetComponent from "../components/HelmetComponent";
+
 
 export default function DetailManga() {
   const { id } = useParams();
@@ -27,15 +29,22 @@ export default function DetailManga() {
     <>
       {anime && (
         <>
-          <div className="div-c-detail-anime">
-            <div>
+        <HelmetComponent
+            title={`MeWeeb | ${anime.title_english} | Manga Detail`}
+            keyword={
+              "Manga, Manga Info, Manga Wiki, Manga Detail, Manga Synopsis, Manga Information, Manga Trailer"
+            }
+            description={`Dive into ${anime.title_english}, Get ready for ${anime.genres.map(data => data.name)} in this captivating story!`}
+          />
+          <section className="div-c-detail-anime">
+            <figure>
               <img
                 src={anime.images.jpg.large_image_url}
                 alt={anime.title}
                 className="img-detail-anime"
               />
-            </div>
-            <div className="div-info-anime">
+            </figure>
+            <aside className="div-info-anime">
               <h1>{anime.title}</h1>
               <div className="anime-desc">{anime.synopsis}</div>
               <div className="div-info-anime2">
@@ -61,8 +70,8 @@ export default function DetailManga() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
+            </aside>
+          </section>
         </>
       )}
     </>
