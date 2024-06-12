@@ -6,6 +6,8 @@ import { faStar as faStarKosong } from "@fortawesome/free-regular-svg-icons";
 
 import Rating from "react-rating";
 
+import { Helmet } from "react-helmet";
+
 export default function Reviews() {
   const [reviews, setReviews] = useState([]);
 
@@ -42,6 +44,19 @@ export default function Reviews() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MeWeeb | Anime & Manga Reviews</title>
+        <meta name="robots" content="index,follow" />
+        <meta
+          name="keywords"
+          content="Anime, Manga, Anime Info, Anime Information, Anime Reviews, Manga Reviews"
+        />
+        <meta
+          name="description"
+          content="Dive into the world of anime and manga with insightful reviews that explore captivating stories, stunning visuals, and unforgettable characters. Discover must-watch shows and must-read comics, whether you're a seasoned otaku or a curious newcomer."
+        />
+      </Helmet>
       <center>
         <h2>
           <b>Anime & Manga Reviews</b>
@@ -50,10 +65,10 @@ export default function Reviews() {
       <br />
       <br />
       <br />
-      <div className="div_c_reviews">
+      <section className="div_c_reviews">
         {reviews &&
           reviews.map((review, index) => (
-            <div className="div_card_reviews">
+            <article className="div_card_reviews">
               <img
                 src={review.entry.images.jpg.large_image_url}
                 alt={review.entry.title}
@@ -76,10 +91,16 @@ export default function Reviews() {
 
                 <Rating
                   emptySymbol={
-                    <FontAwesomeIcon icon={faStarKosong} style={{color:'rgb(250 204 21)'}} />
+                    <FontAwesomeIcon
+                      icon={faStarKosong}
+                      style={{ color: "rgb(250 204 21)" }}
+                    />
                   }
                   fullSymbol={
-                    <FontAwesomeIcon icon={faStar} style={{color:'rgb(250 204 21)'}} />
+                    <FontAwesomeIcon
+                      icon={faStar}
+                      style={{ color: "rgb(250 204 21)" }}
+                    />
                   }
                   onHover={(hover) => console.log(`hover ${hover}`)}
                   onChange={(hover) => console.log(`change ${hover}`)}
@@ -91,9 +112,9 @@ export default function Reviews() {
                   stop={10}
                 />
               </div>
-            </div>
+            </article>
           ))}
-      </div>
+      </section>
     </>
   );
 }

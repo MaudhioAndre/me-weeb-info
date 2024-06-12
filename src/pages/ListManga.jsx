@@ -38,22 +38,22 @@ export default function ListManga() {
   return (
     <>
       <div className="header_content">
-        <div>Top Manga</div>
+        <h4>Top Manga</h4>
         <Link to={"all/manga"}>View More</Link>
       </div>
-      <div className="div_content">
+      <section className="div_content">
         {mangaList &&
           mangaList.map((data, i) => (
             <Link to={`/manga/${data.mal_id}`}>
-              <div className="img_content" style={{backgroundImage:`url(${data.images.jpg.image_url})`}}>
-                <div>
+              <article className="img_content" style={{backgroundImage:`url(${data.images.jpg.image_url})`}}>
+                <h6>
                   <span>{i + 1} </span>
                   {data.title}
-                </div>
-              </div>
+                </h6>
+              </article>
             </Link>
           ))}
-      </div>
+      </section>
     </>
   );
 }

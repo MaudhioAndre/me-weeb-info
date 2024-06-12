@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import HelmetComponent from "../components/HelmetComponent";
 
 export default function DetailAnime() {
   const { id } = useParams();
@@ -27,17 +28,25 @@ export default function DetailAnime() {
     <>
       {anime && (
         <>
-          <div className="div-c-detail-anime">
-            <div>
+          <HelmetComponent
+            title={`MeWeeb | ${anime.title_english} | Anime Detail`}
+            keyword={
+              "Anime, Anime Info, Anime Wiki, Anime Detail, Anime Synopsis, Anime Information, Anime Trailer"
+            }
+            description={`Dive into the world of ${anime.title_english}, Get ready for ${anime.genres.map(data => data.name)} in this captivating story!`}
+          />
+
+          <section className="div-c-detail-anime">
+            <figure>
               <img
                 src={anime.images.jpg.large_image_url}
                 alt={anime.title}
                 className="img-detail-anime"
               />
-            </div>
-            <div className="div-info-anime">
+            </figure>
+            <aside className="div-info-anime">
               <h1>{anime.title}</h1>
-              <div className="anime-desc">{anime.synopsis}</div>
+              <p className="anime-desc">{anime.synopsis}</p>
               <div className="div-info-anime2">
                 <div>
                   <h3>Information</h3>
@@ -70,21 +79,21 @@ export default function DetailAnime() {
                   ))}
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="trailer-anime">
-          <h3>Trailer</h3>
-          <iframe
-            width="100%"
-            height="500px"
-            src={anime.trailer.embed_url}
-            title="YouTube video player"
-            // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="rounded-lg shadow-lg"
-          ></iframe>
-          </div>
+            </aside>
+          </section>
+          <section className="trailer-anime">
+            <h3>Trailer</h3>
+            <iframe
+              width="100%"
+              height="500px"
+              src={anime.trailer.embed_url}
+              title="YouTube video player"
+              // allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="rounded-lg shadow-lg"
+            ></iframe>
+          </section>
         </>
       )}
     </>

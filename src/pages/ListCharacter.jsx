@@ -38,22 +38,22 @@ export default function ListCharacter() {
   return (
     <>
       <div className="header_content">
-        <div>Top Character</div>
+        <h4>Top Character</h4>
         <Link to={"all/characters"}>View More</Link>
       </div>
-      <div className="div_content">
+      <section className="div_content">
         {charList &&
             charList.map((data, i) => (
             <Link to={`/characters/${data.mal_id}`}>
-              <div className="img_content" style={{backgroundImage:`url(${data.images.jpg.image_url})`}}>
-                <div>
+              <article className="img_content" style={{backgroundImage:`url(${data.images.jpg.image_url})`}}>
+                <h6>
                   <span>{i + 1} </span>
                   {data.name}
-                </div>
-              </div>
+                </h6>
+              </article>
             </Link>
           ))}
-      </div>
+      </section>
     </>
   );
 }

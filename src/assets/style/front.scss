@@ -57,7 +57,7 @@ body{
     margin-bottom: 20px;
 }
 
-.header_content div{
+.header_content h4{
     font-weight: bold;
     font-size: 1.25rem;
     line-height: 1.75rem;
@@ -102,7 +102,7 @@ body{
     font-weight: 700;
 }
 
-.img_content div{
+.img_content h6{
     background-color: rgba(0, 0, 0, 0.8);
     width: 100%;
     text-align: center;
@@ -110,6 +110,7 @@ body{
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    margin-bottom: unset;
 }
 
 .div-c-detail-anime{

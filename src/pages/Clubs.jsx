@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 
+import { Helmet } from "react-helmet";
+
 export default function Clubs() {
   const [reviews, setReviews] = useState([]);
 
@@ -21,6 +23,16 @@ export default function Clubs() {
   }, []);
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MeWeeb | Anime & Manga Fanclubs</title>
+        <meta name="robots" content="index,follow" />
+        <meta name="keywords" content="Anime, Manga, Anime & Manga Fanclubs, Anime Fanclub, Manga Fanclub" />
+        <meta
+          name="description"
+          content="Dive into the world of anime and manga! This fan club is your hub for all things otaku, connecting you with fellow fans to discuss your favorite shows, characters, and even cosplay adventures!"
+        />
+      </Helmet>
       <center>
         <h2>
           <b>Clubs</b>
@@ -29,16 +41,16 @@ export default function Clubs() {
       <br />
       <br />
       <br />
-      <div className="div_c_reviews">
+      <section className="div_c_reviews">
         {reviews &&
           reviews.map((review, index) => (
-            <div className="div_card_reviews">
+            <article className="div_card_reviews">
               <img
                 src={review.images.jpg.image_url}
                 alt={review.name}
                 className="img_reviews"
               />
-              <div>
+              <figure>
                 <h4 className="title_anime_review">{review.name}</h4>
                 <p className="desc_reviews">
                   <strong>Members: </strong>
@@ -56,10 +68,10 @@ export default function Clubs() {
                     </a>
                   </strong>
                 </p>
-              </div>
-            </div>
+              </figure>
+            </article>
           ))}
-      </div>
+      </section>
     </>
   );
 }

@@ -32,13 +32,13 @@ export default function Hero() {
 
   return (
     isObjectEmpty(randomAnime) == false && (
-      <div className="hero-background" style={{background:`url(${randomAnime.data.images.jpg.large_image_url})`}}>
+      <section className="hero-background" style={{background:`url(${randomAnime.data.images.jpg.large_image_url})`}}>
         <div className="hero-content">
         <h2 className="title-hero"> {randomAnime.data.titles[0].title}</h2>
         <p className="desc-hero">{randomAnime.data.synopsis}</p>
         {/* <button>Explore Now</button> */}
         </div>
-      </div>
+      </section>
     )
   );
 }

@@ -16,6 +16,7 @@ import Reviews from "./pages/Reviews";
 import Recommendations from "./pages/Recommendations";
 import Magazines from "./pages/Magazines";
 import Clubs from "./pages/Clubs";
+import SearchPage from "./pages/SearchPage";
 
 function App() {
   return (
@@ -24,8 +25,10 @@ function App() {
         <Header />
         <main className="main-content">
           <Routes>
+            <Route path="*" element={<NotFound />} />
             <Route path="/" element={<Dashboard />} />
             <Route path="/clubs" element={<Clubs />} />
+            <Route path="/search" element={<SearchPage />} />
             <Route path="/magazines" element={<Magazines />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/recommendations" element={<Recommendations />} />
@@ -41,6 +44,10 @@ function App() {
       </Router>
     </>
   );
+}
+
+function NotFound() {
+  return <h2>404 NOT FOUND</h2>;
 }
 
 export default App;

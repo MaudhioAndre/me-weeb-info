@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import "../assets/style/header.scss";
 
 export default function Header() {
+  const navigate = useNavigate();
+
+  const [searchQuery, setSearchQuery] = useState("");
   const [topNavStat, setTopNavStat] = useState("topnav");
 
   const toggle = () => {
@@ -14,6 +17,16 @@ export default function Header() {
     } else {
       setTopNavStat("topnav");
     }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  const handleSearch = async () => {
+    navigate(`/search?q=${searchQuery}`);
   };
 
   return (
@@ -37,14 +50,17 @@ export default function Header() {
             type="text"
             className="search_home"
             placeholder="Search Anime..."
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyPress={handleKeyPress}
           />
           <a href="javascript:void(0);" class="icon" onClick={() => toggle()}>
-          <img src={require("../assets/img/icon/layout.png")} alt="drawer-icon" />
-        </a>
+            <img
+              src={require("../assets/img/icon/layout.png")}
+              alt="drawer-icon"
+            />
+          </a>
         </div>
-        
       </div>
-      
     </div>
   );
 }

@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+import { Helmet } from "react-helmet";
+
 export default function Recommendations() {
   const [recommendations, setRecommendations] = useState([]);
 
@@ -32,6 +34,19 @@ export default function Recommendations() {
 
   return (
     <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>MeWeeb | Anime & Manga Recommendations</title>
+        <meta name="robots" content="index,follow" />
+        <meta
+          name="keywords"
+          content="Anime, Manga, Anime Recommendations, Anime Information, Manga Information"
+        />
+        <meta
+          name="description"
+          content="Looking for your next anime or manga obsession? We've got you covered! From pulse-pounding action and epic adventures to slice-of-life stories and tear-jerking dramas, discover a vast library of recommendations tailored to every taste."
+        />
+      </Helmet>
       <center>
         <h2>
           <b>Anime & Manga Recommendations</b>
@@ -41,17 +56,16 @@ export default function Recommendations() {
       <br />
       <br />
 
-      <div className="div_contain_anime_rec">
+      <section className="div_contain_anime_rec">
         {recommendations &&
           recommendations.map((recommendation) => (
-            <div>
+            <article>
               Recommended by &nbsp;
               <a href={recommendation.user.url}>
                 {recommendation.user.username}
               </a>
               &nbsp; on {new Date(recommendation.date).toLocaleDateString()}
-              
-              <div className="div_anime_recommendations">
+              <figure className="div_anime_recommendations">
                 {recommendation.entry.map((anime) => (
                   <Link
                     to={`/anime/${anime.mal_id}`}
@@ -64,14 +78,14 @@ export default function Recommendations() {
                         backgroundImage: `url(${anime.images.jpg.image_url})`,
                       }}
                     >
-                      <div>{` ${truncateTitle(anime.title, 14)}`}</div>
+                      <h6>{` ${truncateTitle(anime.title, 14)}`}</h6>
                     </div>
                   </Link>
                 ))}
-              </div>
-            </div>
+              </figure>
+            </article>
           ))}
-      </div>
+      </section>
     </>
   );
 }
