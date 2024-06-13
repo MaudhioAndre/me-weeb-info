@@ -1,4 +1,3 @@
-// import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -6,17 +5,6 @@ import "./assets/style/front.scss";
 // import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-// import ListAnimeAll from "./pages/ListAnimeAll";
-// import ListCharacterAll from "./pages/ListCharacterAll";
-// import ListMangaAll from "./pages/ListMangaAll";
-// import DetailAnime from "./pages/DetailAnime";
-// import DetailManga from "./pages/DetailManga";
-// import DetailCharacters from "./pages/DetailCharacter";
-// import Reviews from "./pages/Reviews";
-// import Recommendations from "./pages/Recommendations";
-// import Magazines from "./pages/Magazines";
-// import Clubs from "./pages/Clubs";
-// import SearchPage from "./pages/SearchPage";
 
 import CodeSplitting from "./components/CodeSplitting.tsx";
 
