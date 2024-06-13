@@ -32,9 +32,8 @@ export default function Header() {
   return (
     <div class={topNavStat}>
       <a className="web_name" href="/">
-      <span className="text_gradient">MW</span>
-        {/* <span className="text_gradient">M</span>e
-        <span className="text_gradient">W</span>eeb */}
+        <span className="text_gradient">M</span>e
+        <span className="text_gradient">W</span>eeb
       </a>
       <div className="div_menu_search">
         <div>
