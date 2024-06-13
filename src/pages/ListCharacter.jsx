@@ -1,28 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import axios from "axios";
-import { API_URL } from "../api/jikanApi";
-
-export default function ListCharacter() {
+export default function ListCharacter({ characterList }) {
   const [charList, setCharList] = useState([]);
-
   useEffect(() => {
-    const getData = () => {
-      axios
-        .get(`${API_URL}/top/characters`)
-        .then((response) => {
-          const data = response.data.data;
-          const limitedCharList = data.slice(0, 6);
-          setCharList(limitedCharList);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+    setCharList(characterList);
+  }, [characterList]);
 
-    getData();
-  }, []);
+  const limitedCharList = charList.slice(0, 6);
 
   return (
     <>
@@ -31,10 +16,15 @@ export default function ListCharacter() {
         <Link to={"all/characters"}>View More</Link>
       </div>
       <section className="div_content">
-        {charList &&
-            charList.map((data, i) => (
+        {limitedCharList &&
+          limitedCharList.map((data, i) => (
             <Link key={i} to={`/characters/${data.mal_id}`}>
-              <article className="img_content" style={{backgroundImage:`url(${data.images.webp.image_url})`}}>
+              <article
+                className="img_content"
+                style={{
+                  backgroundImage: `url(${data.images.webp.image_url})`,
+                }}
+              >
                 <h6>
                   <span>{i + 1} </span>
                   {data.name}

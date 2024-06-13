@@ -5,29 +5,29 @@ import { API_URL } from "../api/jikanApi";
 import "../assets/style/front.scss"
 import { Link } from "react-router-dom";
 
-export default function Hero() {
-  const [randomAnime, setRandomAnime] = useState({});
+export default function Hero({randomAnime}) {
+  // const [randomAnime, setRandomAnime] = useState({});
 
-  console.log("Dashboard");
-  console.log(randomAnime);
-  console.log("Dashboard");
+  // console.log("Dashboard");
+  // console.log(randomAnime);
+  // console.log("Dashboard");
 
-  useEffect(() => {
-    const getData = async () => {
-      console.log("getData");
-      await axios
-        .get(`${API_URL}/random/anime`)
-        .then((response) => {
-          console.log(response);
-          setRandomAnime(response.data);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    };
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     console.log("getData");
+  //     await axios
+  //       .get(`${API_URL}/random/anime`)
+  //       .then((response) => {
+  //         console.log(response);
+  //         setRandomAnime(response.data);
+  //       })
+  //       .catch((error) => {
+  //         console.log(error);
+  //       });
+  //   };
 
-    getData();
-  }, []);
+  //   getData();
+  // }, []);
 
   const isObjectEmpty = (objectName) => {
     return Object.keys(objectName).length === 0;
