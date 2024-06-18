@@ -6,35 +6,35 @@ import "./assets/style/front.scss";
 import CodeSplitting from "./components/CodeSplitting.tsx";
 
 
-// import Header from "./components/Header";
-// import Footer from "./components/Footer";
-// const Dashboard = CodeSplitting(() => import("./pages/Dashboard"));
-// const ListAnimeAll = CodeSplitting(() => import("./pages/ListAnimeAll"));
-// const ListCharacterAll = CodeSplitting(() => import("./pages/ListCharacterAll"));
-// const ListMangaAll = CodeSplitting(() => import("./pages/ListMangaAll"));
-// const DetailAnime = CodeSplitting(() => import("./pages/DetailAnime"));
-// const DetailManga = CodeSplitting(() => import("./pages/DetailManga"));
-// const DetailCharacters = CodeSplitting(() => import("./pages/DetailCharacter"));
-// const Reviews = CodeSplitting(() => import("./pages/Reviews"));
-// const Recommendations = CodeSplitting(() => import("./pages/Recommendations"));
-// const Magazines = CodeSplitting(() => import("./pages/Magazines"));
-// const Clubs = CodeSplitting(() => import("./pages/Clubs"));
-// const SearchPage = CodeSplitting(() => import("./pages/SearchPage"));
-
-import Dashboard from "./pages/Dashboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import ListAnimeAll from "./pages/ListAnimeAll";
-import ListCharacterAll from "./pages/ListCharacterAll";
-import ListMangaAll from "./pages/ListMangaAll";
-import DetailAnime from "./pages/DetailAnime";
-import DetailManga from "./pages/DetailManga";
-import DetailCharacters from "./pages/DetailCharacter";
-import Reviews from "./pages/Reviews";
-import Recommendations from "./pages/Recommendations";
-import Magazines from "./pages/Magazines";
-import Clubs from "./pages/Clubs";
-import SearchPage from "./pages/SearchPage";
+const Dashboard = CodeSplitting(() => import("./pages/Dashboard"));
+const ListAnimeAll = CodeSplitting(() => import("./pages/ListAnimeAll"));
+const ListCharacterAll = CodeSplitting(() => import("./pages/ListCharacterAll"));
+const ListMangaAll = CodeSplitting(() => import("./pages/ListMangaAll"));
+const DetailAnime = CodeSplitting(() => import("./pages/DetailAnime"));
+const DetailManga = CodeSplitting(() => import("./pages/DetailManga"));
+const DetailCharacters = CodeSplitting(() => import("./pages/DetailCharacter"));
+const Reviews = CodeSplitting(() => import("./pages/Reviews"));
+const Recommendations = CodeSplitting(() => import("./pages/Recommendations"));
+const Magazines = CodeSplitting(() => import("./pages/Magazines"));
+const Clubs = CodeSplitting(() => import("./pages/Clubs"));
+const SearchPage = CodeSplitting(() => import("./pages/SearchPage"));
+
+// import Dashboard from "./pages/Dashboard";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
+// import ListAnimeAll from "./pages/ListAnimeAll";
+// import ListCharacterAll from "./pages/ListCharacterAll";
+// import ListMangaAll from "./pages/ListMangaAll";
+// import DetailAnime from "./pages/DetailAnime";
+// import DetailManga from "./pages/DetailManga";
+// import DetailCharacters from "./pages/DetailCharacter";
+// import Reviews from "./pages/Reviews";
+// import Recommendations from "./pages/Recommendations";
+// import Magazines from "./pages/Magazines";
+// import Clubs from "./pages/Clubs";
+// import SearchPage from "./pages/SearchPage";
 
 
 function App() {
