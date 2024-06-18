@@ -4,7 +4,7 @@ import ListAnime from "./ListAnime";
 import ListManga from "./ListManga";
 import ListCharacter from "./ListCharacter";
 
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import {
   fetchRandomAnime,
   fetchTopAnime,
@@ -52,7 +52,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <Helmet>
+      {/* <Helmet>
         <meta charSet="utf-8" />
         <title>
           MeWeeb | Anime Information, Reviews, News, Recommendations and Clubs{" "}
@@ -66,7 +66,7 @@ export default function Dashboard() {
           name="description"
           content="Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more."
         />
-      </Helmet>
+      </Helmet> */}
 
       {loading ? (
         <p className="mt-2">Loading...</p>
