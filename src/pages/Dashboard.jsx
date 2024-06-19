@@ -75,6 +75,20 @@ export default function Dashboard() {
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-screen">
           <BeatLoader color={"#ffffff"} loading={loading} size={15} />
+          <div className="flex text-3xl ">
+            <>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+                M
+              </span>
+              e
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
+                W
+              </span>
+              <h1>
+              eeb
+              </h1>
+            </>
+          </div>
           <h2>Sedang Mengambil Data</h2>
         </div>
       ) : error ? (
