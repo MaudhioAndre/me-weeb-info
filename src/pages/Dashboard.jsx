@@ -29,15 +29,15 @@ export default function Dashboard() {
       try {
         // Fetch Top Anime data
         const topAnimeResponse = await fetchTopAnime();
-        setTopAnime(topAnimeResponse.data.data);
+        setTopAnime(topAnimeResponse.data.data.slice(0, 6));
 
         // Fetch Top Manga data
         const topMangaResponse = await fetchTopManga();
-        setTopManga(topMangaResponse.data.data);
+        setTopManga(topMangaResponse.data.data.slice(0, 6));
 
         // Fetch Top Characters data
         const topCharactersResponse = await fetchTopCharacters();
-        setTopCharacters(topCharactersResponse.data.data);
+        setTopCharacters(topCharactersResponse.data.data.slice(0, 6));
 
         // // Fetch Random Anime data
         const randomAnimeResponse = await fetchRandomAnime();
