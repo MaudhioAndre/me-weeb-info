@@ -13,6 +13,8 @@ import {
   fetchTopCharacters,
   fetchTopManga,
 } from "../api/jikanApi";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 export default function Dashboard() {
   const [topAnime, setTopAnime] = useState([]);
@@ -84,9 +86,7 @@ export default function Dashboard() {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
                 W
               </span>
-              <h1>
-              eeb
-              </h1>
+              <h1>eeb</h1>
             </>
           </div>
           <h2>Sedang Mengambil Data</h2>
@@ -95,10 +95,12 @@ export default function Dashboard() {
         <p>Something wrong in server</p>
       ) : (
         <>
+          <Header />
           {/* <Hero randomAnime={randomAnime} /> */}
           <ListAnime animeList={topAnime} />
           <ListManga mangaList={topManga} />
           <ListCharacter characterList={topCharacters} />
+          <Footer />
         </>
       )}
     </>
