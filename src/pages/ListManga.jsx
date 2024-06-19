@@ -37,6 +37,7 @@ export default function ListManga({ mangaList }) {
                   <img
                     src={manga.images.webp.image_url}
                     alt={manga.title}
+                    loading="lazy"
                     className="w-full lg:h-64 h-96  object-cover object-center"
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-center py-2">
