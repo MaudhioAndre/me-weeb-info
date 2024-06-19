@@ -1,6 +1,6 @@
 import React from "react";
 
-import "../assets/style/front.scss";
+// import "../assets/style/front.scss";
 import { Link } from "react-router-dom";
 
 export default function Hero({ randomAnime }) {
