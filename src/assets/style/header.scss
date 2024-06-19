@@ -18,7 +18,6 @@ body {
     overflow: hidden;
     background-color: black;
     padding: 10px;
-    // margin-bottom: 50px;
   }
   
   .topnav a {
@@ -36,12 +35,6 @@ body {
         transition: 300ms;
     }
   }
-  
-//   .topnav a:hover {
-//     background-color: #ddd;
-//     color: black;
-//   }
-  
   
   .topnav .icon {
     display: none;
@@ -69,7 +62,6 @@ body {
         position: absolute;
         right: 65px;
         top: 20px;
-        // width: 140px;
         width: 95px;
     }
 

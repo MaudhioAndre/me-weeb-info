@@ -5,17 +5,14 @@ import { Helmet } from "react-helmet";
 
 import axios from "axios";
 import { API_URL } from "../api/jikanApi";
+import TruncateTitle from "../components/TruncateTitle";
+import LoadingComp from "../components/LoadingComp";
 
 export default function ListMangaAll() {
   const [animeList, setAnimeList] = useState([]);
-  console.log(animeList);
+  const [loading, setLoading] = useState(true);
 
-  const truncateTitle = (title, maxLength) => {
-    if (title.length > maxLength) {
-      return title.substring(0, maxLength - 3) + "...";
-    }
-    return title;
-  };
+  console.log(animeList);
 
   useEffect(() => {
     const getData = () => {
@@ -25,6 +22,7 @@ export default function ListMangaAll() {
         .then((response) => {
           console.log(response);
           setAnimeList(response.data.data);
+          setLoading(false);
         })
         .catch((error) => {
           console.log(error);
@@ -49,29 +47,64 @@ export default function ListMangaAll() {
           content="This webpage provides a list of Manga recommendations or a collection of your favorite Manga."
         />
       </Helmet>
-      <center>
-        <h2>
-          <b>All Manga</b>
-        </h2>
-      </center>
-      <br />
-      <br />
-      <section className="div_content">
-        {animeList &&
-          animeList.map((data, i) => (
-            <Link to={`/manga/${data.mal_id}`}>
-              <article
-                className="img_content"
-                style={{ backgroundImage: `url(${data.images.jpg.image_url})` }}
-              >
-                <h6>
-                  <span>{i + 1} </span>
-                  {data.title}
-                </h6>
-              </article>
-            </Link>
-          ))}
-      </section>
+
+      {loading ? (
+        <LoadingComp />
+      ) : (
+        <div>
+          <h1 className="my-8 text-3xl font-bold text-center text-white">
+            All Manga
+          </h1>
+          <div className="grid grid-cols-1 gap-8 px-5 pt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+            {animeList &&
+              animeList.map((manga, index) => (
+                <Link
+                  to={`/manga/${manga.mal_id}`}
+                  key={manga.mal_id}
+                  className="relative overflow-hidden bg-transparent rounded-lg shadow-md"
+                >
+                  <img
+                    src={manga.images.jpg.image_url}
+                    alt={manga.title}
+                    className="object-cover object-center w-full lg:h-64 h-96"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 py-2 text-center text-white bg-black bg-opacity-80">
+                    <h3 className="text-base font-semibold">
+                      <span className="text-red-500">
+                        {`${index < 9 ? "0" : ""}${index + 1}`}
+                      </span>
+                      {` ${TruncateTitle(manga.title, 14)}`}
+                    </h3>
+                  </div>
+                </Link>
+              ))}
+          </div>
+        </div>
+      )}
     </>
   );
 }
+
+// <center>
+//         <h2>
+//           <b>All Manga</b>
+//         </h2>
+//       </center>
+//       <br />
+//       <br />
+//       <section className="div_content">
+//         {animeList &&
+//           animeList.map((data, i) => (
+//             <Link to={`/manga/${data.mal_id}`}>
+//               <article
+//                 className="img_content"
+//                 style={{ backgroundImage: `url(${data.images.jpg.image_url})` }}
+//               >
+//                 <h6>
+//                   <span>{i + 1} </span>
+//                   {data.title}
+//                 </h6>
+//               </article>
+//             </Link>
+//           ))}
+//       </section>

@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/style/front.scss";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "./assets/style/front.scss";
 
 import CodeSplitting from "./components/CodeSplitting.tsx";
 
