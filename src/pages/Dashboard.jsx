@@ -96,7 +96,7 @@ export default function Dashboard() {
       ) : (
         <>
           <Header />
-          {/* <Hero randomAnime={randomAnime} /> */}
+          <Hero randomAnime={randomAnime} />
           <ListAnime animeList={topAnime} />
           <ListManga mangaList={topManga} />
           <ListCharacter characterList={topCharacters} />
