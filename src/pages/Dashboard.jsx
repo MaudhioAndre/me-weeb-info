@@ -73,7 +73,7 @@ export default function Dashboard() {
       </Helmet>
 
       {/* <p className="mt-2">Loading...</p> */}
-
+{/* 
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-screen">
           <BeatLoader color={"#ffffff"} loading={loading} size={15} />
@@ -95,15 +95,15 @@ export default function Dashboard() {
       ) : error ? (
         <p>Something wrong in server</p>
       ) : (
-        <>
+        <> */}
           <Header />
           {/* <Hero randomAnime={randomAnime} />
           <ListAnime animeList={topAnime} /> */}
-          <ListManga mangaList={topManga} />
+          {topManga && <ListManga mangaList={topManga} />}
           {/* <ListCharacter characterList={topCharacters} /> */}
           <Footer />
-        </>
-      )}
+        {/* </>
+      )} */}
     </>
   );
 }
