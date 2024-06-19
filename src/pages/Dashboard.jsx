@@ -97,10 +97,10 @@ export default function Dashboard() {
       ) : (
         <> */}
           <Header />
-          {/* <Hero randomAnime={randomAnime} />
-          <ListAnime animeList={topAnime} /> */}
-          {topManga && <ListManga mangaList={topManga} />}
-          {/* <ListCharacter characterList={topCharacters} /> */}
+          {/* <Hero randomAnime={randomAnime} /> */}
+          <ListAnime animeList={topAnime} />
+          <ListManga mangaList={topManga} />
+          <ListCharacter characterList={topCharacters} />
           <Footer />
         {/* </>
       )} */}
