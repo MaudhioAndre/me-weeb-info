@@ -34,7 +34,7 @@ export default function ListCharacter({ characterList }) {
                   className="relative overflow-hidden bg-transparent rounded-lg shadow-md"
                 >
                   <img
-                    src={manga.images.jpg.image_url}
+                    src={manga.images.webp.image_url}
                     alt={manga.name}
                     className="object-cover object-center w-full lg:h-64 h-96"
                   />

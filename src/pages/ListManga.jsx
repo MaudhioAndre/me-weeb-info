@@ -35,7 +35,7 @@ export default function ListManga({ mangaList }) {
                   className="bg-transparent rounded-lg shadow-md overflow-hidden relative"
                 >
                   <img
-                    src={manga.images.jpg.image_url}
+                    src={manga.images.webp.image_url}
                     alt={manga.title}
                     className="w-full lg:h-64 h-96  object-cover object-center"
                   />

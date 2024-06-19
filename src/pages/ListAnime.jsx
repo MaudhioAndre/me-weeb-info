@@ -29,7 +29,7 @@ export default function ListAnime({ animeList }) {
                   className="relative overflow-hidden bg-transparent rounded-lg shadow-md"
                 >
                   <img
-                    src={anime.images.jpg.image_url}
+                    src={anime.images.webp.image_url}
                     alt={anime.title}
                     className="object-cover object-center w-full lg:h-64 h-96"
                   />

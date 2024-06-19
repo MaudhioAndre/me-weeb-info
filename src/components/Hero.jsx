@@ -13,7 +13,7 @@ export default function Hero({ randomAnime }) {
       <section
         className="relative h-screen overflow-hidden bg-top bg-no-repeat bg-cover"
         style={{
-          backgroundImage: `url(${randomAnime.data.images.jpg.large_image_url})`,
+          backgroundImage: `url(${randomAnime.data.images.webp.large_image_url})`,
         }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
