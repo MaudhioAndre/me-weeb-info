@@ -89,6 +89,7 @@ export default function Dashboard() {
               <h1>eeb</h1>
             </>
           </div>
+          <div className="text-1xl">Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.</div>
           <h2>Sedang Mengambil Data</h2>
         </div>
       ) : error ? (
