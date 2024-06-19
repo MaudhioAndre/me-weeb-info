@@ -75,13 +75,13 @@ export default function Dashboard() {
       {loading ? (
         <div className="flex flex-col items-center justify-center min-h-screen">
           <BeatLoader color={"#ffffff"} loading={loading} size={15} />
-          <p>Sedang Mengambil Data</p>
+          <h2>Sedang Mengambil Data</h2>
         </div>
       ) : error ? (
         <p>Something wrong in server</p>
       ) : (
         <>
-          <Hero randomAnime={randomAnime} />
+          {/* <Hero randomAnime={randomAnime} /> */}
           <ListAnime animeList={topAnime} />
           <ListManga mangaList={topManga} />
           <ListCharacter characterList={topCharacters} />
