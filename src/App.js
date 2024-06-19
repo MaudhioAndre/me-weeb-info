@@ -59,7 +59,7 @@ function App() {
             <Route path="/characters/:id" element={<DetailCharacters />} />
           </Routes>
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </>
   );
