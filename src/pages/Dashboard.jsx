@@ -21,8 +21,6 @@ export default function Dashboard() {
   const [randomAnime, setRandomAnime] = useState([]);
   const [topCharacters, setTopCharacters] = useState([]);
   const [topManga, setTopManga] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -71,39 +69,12 @@ export default function Dashboard() {
           content="Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more."
         />
       </Helmet>
-
-      {/* <p className="mt-2">Loading...</p> */}
-{/* 
-      {loading ? (
-        <div className="flex flex-col items-center justify-center min-h-screen">
-          <BeatLoader color={"#ffffff"} loading={loading} size={15} />
-          <div className="flex text-3xl ">
-            <>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
-                M
-              </span>
-              e
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
-                W
-              </span>
-              <h1>eeb</h1>
-            </>
-          </div>
-          <div className="text-1xl">Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.</div>
-          <h2>Sedang Mengambil Data</h2>
-        </div>
-      ) : error ? (
-        <p>Something wrong in server</p>
-      ) : (
-        <> */}
           <Header />
           {/* <Hero randomAnime={randomAnime} /> */}
           <ListAnime animeList={topAnime} />
           <ListManga mangaList={topManga} />
           <ListCharacter characterList={topCharacters} />
           <Footer />
-        {/* </>
-      )} */}
     </>
   );
 }
