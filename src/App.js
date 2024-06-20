@@ -41,7 +41,7 @@ function App() {
   return (
     <>
       <Router>
-        {/* <Header /> */}
+        <Header />
         <main className="main-content">
           <Routes>
             <Route path="*" element={<NotFound />}></Route>
@@ -59,7 +59,7 @@ function App() {
             <Route path="/characters/:id" element={<DetailCharacters />} />
           </Routes>
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
     </>
   );

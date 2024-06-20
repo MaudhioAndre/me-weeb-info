@@ -60,13 +60,13 @@ export default function Dashboard() {
         description={`Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.`}
       />
 
-      <Header />
+      {/* <Header /> */}
       <Hero2 />
       {/* <Hero randomAnime={randomAnime} /> */}
       <ListAnime animeList={topAnime} />
       <ListManga mangaList={topManga} />
       <ListCharacter characterList={topCharacters} />
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }
