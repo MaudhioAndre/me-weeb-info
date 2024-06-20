@@ -15,6 +15,7 @@ import {
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HelmetComponent from "../components/HelmetComponent";
+import Hero2 from "../components/Hero2";
 
 export default function Dashboard() {
   const [topAnime, setTopAnime] = useState([]);
@@ -60,6 +61,7 @@ export default function Dashboard() {
       />
 
       <Header />
+      <Hero2 />
       {/* <Hero randomAnime={randomAnime} /> */}
       <ListAnime animeList={topAnime} />
       <ListManga mangaList={topManga} />
