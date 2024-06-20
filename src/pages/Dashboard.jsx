@@ -41,11 +41,8 @@ export default function Dashboard() {
         const randomAnimeResponse = await fetchRandomAnime();
         setRandomAnime(randomAnimeResponse.data);
 
-        setLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
-        setError("Gagal Mengambil Data, Silahkan Coba Kembali.");
-        setLoading(false);
       }
     };
 
