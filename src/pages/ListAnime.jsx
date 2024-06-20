@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import TruncateTitle from "../components/TruncateTitle";
 
 export default function ListAnime({ animeList }) {
-  const limitedAnimeList = animeList.slice(0, 6);
+  const limitedAnimeList = animeList;
 
   return (
     <>

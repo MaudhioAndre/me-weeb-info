@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 import TruncateTitle from "../components/TruncateTitle";
 
 export default function ListCharacter({ characterList }) {
-  const [charList, setCharList] = useState([]);
-  useEffect(() => {
-    setCharList(characterList);
-  }, [characterList]);
+  // const [charList, setCharList] = useState([]);
+  // useEffect(() => {
+  //   setCharList(characterList);
+  // }, [characterList]);
 
-  const limitedCharList = charList.slice(0, 6);
+  // const limitedCharList = charList.slice(0, 6);
 
   return (
     <>
@@ -26,8 +26,8 @@ export default function ListCharacter({ characterList }) {
             </Link>
           </div>
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
-            {limitedCharList &&
-              limitedCharList.map((manga, index) => (
+            {characterList &&
+              characterList.map((manga, index) => (
                 <Link
                   to={`/characters/${manga.mal_id}`}
                   key={manga.mal_id}

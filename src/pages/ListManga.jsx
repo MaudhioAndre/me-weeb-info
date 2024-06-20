@@ -3,17 +3,17 @@ import { Link } from "react-router-dom";
 import TruncateTitle from "../components/TruncateTitle";
 
 export default function ListManga({ mangaList }) {
-  const [mangaData, setMangaData] = useState([]);
+  // const [mangaData, setMangaData] = useState([]);
 
-  useEffect(() => {
-    setMangaData(mangaList);
-  }, [mangaList]);
+  // useEffect(() => {
+  //   setMangaData(mangaList);
+  // }, [mangaList]);
 
-  const limitedMangaList = mangaData.slice(0, 6);
+  // const limitedMangaList = mangaData;
 
   return (
     <>
-    {mangaData && (
+    {mangaList && (
       <section className="pb-16 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
@@ -28,8 +28,8 @@ export default function ListManga({ mangaList }) {
             </Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
-            {limitedMangaList &&
-              limitedMangaList.map((manga, index) => (
+            {mangaList &&
+              mangaList.map((manga, index) => (
                 <Link
                   to={`/manga/${manga.mal_id}`}
                   key={manga.mal_id}
