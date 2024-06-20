@@ -6,7 +6,6 @@ import ListCharacter from "./ListCharacter";
 
 import { BeatLoader } from "react-spinners";
 
-import { Helmet } from "react-helmet";
 import {
   fetchRandomAnime,
   fetchTopAnime,
@@ -15,6 +14,7 @@ import {
 } from "../api/jikanApi";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import HelmetComponent from "../components/HelmetComponent";
 
 export default function Dashboard() {
   const [topAnime, setTopAnime] = useState([]);
@@ -54,27 +54,20 @@ export default function Dashboard() {
 
   return (
     <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>
-          MeWeeb | Anime Information, Reviews, News, Recommendations and Clubs{" "}
-        </title>
-        <meta name="robots" content="index,follow" />
-        <meta
-          name="keywords"
-          content="Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, Anime Information, Manga, Anime Reviews, Anime News"
-        />
-        <meta
-          name="description"
-          content="Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more."
-        />
-      </Helmet>
-          <Header />
-          {/* <Hero randomAnime={randomAnime} /> */}
-          <ListAnime animeList={topAnime} />
-          <ListManga mangaList={topManga} />
-          <ListCharacter characterList={topCharacters} />
-          <Footer />
+      <HelmetComponent
+        title={`MeWeeb | Anime Information, Reviews, News, Recommendations and Clubs{" "}`}
+        keyword={
+          "Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, Anime Information, Manga, Anime Reviews, Anime News"
+        }
+        description={`Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.`}
+      />
+
+      <Header />
+      {/* <Hero randomAnime={randomAnime} /> */}
+      <ListAnime animeList={topAnime} />
+      <ListManga mangaList={topManga} />
+      <ListCharacter characterList={topCharacters} />
+      <Footer />
     </>
   );
 }
