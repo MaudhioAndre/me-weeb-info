@@ -24,8 +24,8 @@ export default function Hero2() {
           </p>
           <div className="mt-4 sm:mt-8">
             <Link to="/anime/28851">
-              <button className="bg-gradient-to-r hover:scale-105 rounded-full from-red-500 to-blue-500 text-white font-semibold p-0.5">
-                <span className="flex w-full bg-black text-white rounded-full p-2">
+              <button className="bg-gradient-to-r hover:scale-105 rounded-full from-red-900 to-blue-900 text-white font-semibold p-0.5">
+                <span className="flex w-full bg-black text-white rounded-full p-3">
                   See Detail
                 </span>
               </button>

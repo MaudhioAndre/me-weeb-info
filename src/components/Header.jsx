@@ -45,7 +45,7 @@ const Header = () => {
     return (
         <header className="relative z-10 bg-transparent">
             <div className="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-0">
-                <Link to="/" className="block text-2xl font-bold text-center text-white md:text-left">
+                <Link to="/" className="block text-2xl text-center text-white md:text-left">
                     <span className="sr-only">Home</span>
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-blue-500 to-purple-600">
                         M
@@ -58,7 +58,7 @@ const Header = () => {
                 </Link>
                 <div className="flex items-center justify-center flex-1 md:justify-between">
                     <nav aria-label="Global" className="hidden md:block">
-                        <ul className="flex items-center gap-6 text-sm">
+                        <ul className="flex items-center gap-6 text-md">
                             <li>
                                 <Link to="/all/anime" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Anime
@@ -107,35 +107,16 @@ const Header = () => {
                                     type="text"
                                     id="Search"
                                     placeholder="Search Anime"
-                                    className="w-full rounded-md text-white px-2 border bg-transparent border-gray-700 py-0.5 pe-10 shadow-sm sm:text-sm"
+                                    className="w-full rounded-md text-white px-2 border bg-transparent py-0.5 shadow-sm sm:text-sm"
                                     value={searchQuery}
                                     onChange={handleSearchInputChange}
                                     onKeyPress={handleKeyPress}
                                 />
-                                <span className="absolute inset-y-0 grid w-10 end-0 place-content-center">
-                                    <button type="button" className="text-gray-600 hover:text-gray-700" onClick={handleSearch}>
-                                        <span className="sr-only">Search</span>
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            fill="none"
-                                            viewBox="0 0 24 24"
-                                            strokeWidth="1.5"
-                                            stroke="currentColor"
-                                            className="w-4 h-4"
-                                        >
-                                            <path
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-                                            />
-                                        </svg>
-                                    </button>
-                                </span>
                             </div>
                         </div>
 
                         <button
-                            className="block p-1 text-gray-600 transition bg-transparent border border-gray-600 rounded hover:text-gray-600/75 md:hidden"
+                            className="block p-1 transition bg-transparent border rounded hover:text-gray-600/75 md:hidden"
                             onClick={toggleMenu}
                             aria-label="Toggle menu"
                         >

@@ -15,7 +15,7 @@ export default function ListAnime({ animeList }) {
             </h2>
             <Link
               to="/all/anime"
-              className="px-4 py-2 text-xs font-medium text-white hover:text-white/80"
+              className="px-4 py-2 text-sm font-medium text-white hover:text-white/80"
             >
               View More
             </Link>

@@ -13,7 +13,7 @@ export default function ListManga({ mangaList }) {
               </h2>
               <Link
                 to={"/all/manga"}
-                className="px-4 py-2 hover:text-white/80 text-white text-xs font-medium"
+                className="px-4 py-2 hover:text-white/80 text-white text-sm font-medium"
               >
                 View More
               </Link>

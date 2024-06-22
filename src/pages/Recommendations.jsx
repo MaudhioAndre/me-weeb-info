@@ -85,7 +85,6 @@ export default function Recommendations() {
                       />
                       <div className="absolute bottom-0 left-0 right-0 py-2 text-center text-white bg-black bg-opacity-80">
                         <h3 className="text-base font-semibold">
-                          <span className="text-red-500">{anime.mal_id}</span>
                           {` ${TruncateTitle(anime.title, 14)}`}
                         </h3>
                       </div>
