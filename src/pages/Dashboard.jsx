@@ -54,9 +54,12 @@ export default function Dashboard() {
     <>
       <HelmetComponent
         title={`MeWeeb | Anime Information, Reviews, News, Recommendations and Clubs{" "}`}
-        keyword={
-          "Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, Anime Information, Manga, Anime Reviews, Anime News"
-        }
+
+        // keyword={
+        //   `Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, 
+        //   Anime Information, Manga, Anime Reviews, Anime News`
+        // }
+
         description={`Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.`}
       />
 
