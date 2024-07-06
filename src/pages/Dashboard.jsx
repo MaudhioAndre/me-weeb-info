@@ -59,7 +59,7 @@ export default function Dashboard() {
         //   `Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, 
         //   Anime Information, Manga, Anime Reviews, Anime News`
         // }
-
+        canonLink={process.env.REACT_APP_LINK_URL}
         description={`Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.`}
       />
 
