@@ -56,10 +56,10 @@ export default function DetailAnime() {
                 <h1 className="mb-4 text-4xl font-bold text-yellow-500">
                   {anime.title}
                 </h1>
-                <h2 className="mb-4 text-4xl font-bold text-yellow-500">
+                <h3 className="mb-4 text-4xl font-bold text-yellow-500">
                   {anime.title_english}
-                </h2>
-                title_english
+                </h3>
+                
                 <p className="mb-4 text-lg text-gray-300">{anime.synopsis}</p>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
