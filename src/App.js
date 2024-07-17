@@ -3,11 +3,13 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "./assets/style/front.scss";
 
-import CodeSplitting from "./components/CodeSplitting.tsx";
-
 
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
+
+import CodeSplitting from "./components/CodeSplitting.tsx";
+
 const Dashboard = CodeSplitting(() => import("./pages/Dashboard"));
 const ListAnimeAll = CodeSplitting(() => import("./pages/ListAnimeAll"));
 const ListCharacterAll = CodeSplitting(() => import("./pages/ListCharacterAll"));
@@ -43,6 +45,7 @@ function App() {
       <Router>
         <Header />
         <main className="main-content">
+
           <Routes>
             <Route path="*" element={<NotFound />}></Route>
             <Route path="/" element={<Dashboard />}></Route>
@@ -58,6 +61,7 @@ function App() {
             <Route path="/manga/:id" element={<DetailManga />} />
             <Route path="/characters/:id" element={<DetailCharacters />} />
           </Routes>
+          
         </main>
         <Footer />
       </Router>
