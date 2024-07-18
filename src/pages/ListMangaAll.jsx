@@ -53,7 +53,7 @@ export default function ListMangaAll() {
       ) : (
         <div>
           <h1 className="my-8 text-3xl font-bold text-center text-white">
-            All Manga
+            Manga List
           </h1>
           <div className="grid grid-cols-1 gap-8 px-5 pt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
             {animeList &&

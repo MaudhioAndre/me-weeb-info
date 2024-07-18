@@ -53,13 +53,13 @@ export default function DetailAnime() {
                 />
               </div>
               <div className="space-y-4 lg:w-2/3">
-                <h1 className="mb-4 text-4xl font-bold text-yellow-500">
+                <h1 className=" text-4xl font-bold text-yellow-500">
                   {anime.title}
                 </h1>
-                <h4 className="mb-4 text-4xl font-bold text-yellow-500">
-                  {anime.title_english}
-                </h4>
-                
+                <h1 className="text-1xl font-bold text-gray-500">
+                  {anime.title !== anime.title_english && anime.title_english}
+                </h1>
+
                 <p className="mb-4 text-lg text-gray-300">{anime.synopsis}</p>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
@@ -69,6 +69,12 @@ export default function DetailAnime() {
                     <div className="space-y-2">
                       <div>
                         <strong>Type:</strong> {anime.type}
+                      </div>
+                      <div>
+                        <strong>Season:</strong> {anime.season}
+                      </div>
+                      <div>
+                        <strong>Year:</strong> {anime.year}
                       </div>
                       <div>
                         <strong>Episodes:</strong> {anime.episodes}
@@ -85,6 +91,12 @@ export default function DetailAnime() {
                       <div>
                         <strong>Score:</strong> {anime.score}
                       </div>
+                      <div>
+                        <strong>Popularity:</strong> #{anime.popularity}
+                      </div>
+                      <div>
+                        <strong>Favorite by:</strong> {anime.favorites}
+                      </div>
                     </div>
                   </div>
                   <div>
@@ -99,6 +111,22 @@ export default function DetailAnime() {
                         <li key={demographic.mal_id}>{demographic.name}</li>
                       ))}
                     </ul>
+                    <h2 className="mt-2 mb-2 text-2xl font-semibold text-yellow-500">
+                      Producers
+                    </h2>
+                    <ul className="space-y-1 list-disc list-inside">
+                      {anime.producers.map((prod) => (
+                        <li key={prod.mal_id}>{prod.name}</li>
+                      ))}
+                    </ul>
+                    <h2 className="mt-2 text-2xl font-semibold text-yellow-500">
+                      Studio
+                    </h2>
+                    {anime.studios.map((studio) => (
+                      <div className="mt-2" key={studio.mal_id}>
+                        {studio.name}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -129,7 +157,8 @@ export default function DetailAnime() {
   );
 }
 
-{/* <section className="div-c-detail-anime">
+{
+  /* <section className="div-c-detail-anime">
   <figure>
     <img
       src={anime.images.jpg.large_image_url}
@@ -191,4 +220,5 @@ export default function DetailAnime() {
       ></iframe>
     </section>
   );
-} */}
+} */
+}
