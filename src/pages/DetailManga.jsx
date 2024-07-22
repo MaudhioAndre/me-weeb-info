@@ -59,6 +59,9 @@ export default function DetailManga() {
                 <h1 className="mb-4 text-4xl font-bold text-yellow-500">
                   {anime.title}
                 </h1>
+                <h1 className="text-1xl font-bold text-gray-500">
+                  {anime.title !== anime.title_english && anime.title_english}
+                </h1>
                 <p className="mb-4 text-lg text-gray-300">{anime.synopsis}</p>
                 <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
                   <div>
@@ -73,7 +76,19 @@ export default function DetailManga() {
                         <strong>Status:</strong> {anime.status}
                       </div>
                       <div>
+                        <strong>Chapters:</strong> {anime.chapters}
+                      </div>
+                      <div>
+                        <strong>Volumes:</strong> {anime.volumes}
+                      </div>
+                      <div>
                         <strong>Score:</strong> {anime.score}
+                      </div>
+                      <div>
+                        <strong>Popularity:</strong> #{anime.popularity}
+                      </div>
+                      <div>
+                        <strong>Favorite by:</strong> {anime.favorites}
                       </div>
                     </div>
                   </div>
@@ -89,6 +104,14 @@ export default function DetailManga() {
                         <li key={demographic.mal_id}>{demographic.name}</li>
                       ))}
                     </ul>
+                    <h2 className="mt-2 text-2xl font-semibold text-yellow-500">
+                      Authors
+                    </h2>
+                    {anime.authors.map((author) => (
+                      <div className="mt-2" key={author.mal_id}>
+                        {author.name}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

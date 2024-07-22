@@ -52,7 +52,7 @@ export default function DetailCharacters() {
                 <h1 className="mb-4 text-4xl font-bold text-yellow-500">
                   {anime.name}
                 </h1>
-                <h1 className="mb-4 text-4xl font-bold text-yellow-500">
+                <h1 className="mb-4 text-1xl font-bold text-gray-500">
                   {anime.name_kanji}
                 </h1>
                 <p className="mb-4 text-lg text-gray-300">{anime.about}</p>
@@ -61,19 +61,21 @@ export default function DetailCharacters() {
                     <h2 className="mb-2 text-2xl font-semibold text-yellow-500">
                       Nicknames
                     </h2>
+                    <ul className="space-y-1 list-disc list-inside">
                     {anime.nicknames.map((user, index) => (
-                      <div className="space-y-2" key={index}>
-                        <div>{user}</div>
-                      </div>
+                      <li key={index}>{user}</li>
                     ))}
+                    </ul>
                   </div>
                   <div>
                     <h2 className="mb-2 text-2xl font-semibold text-yellow-500">
-                      Favorites
+                      Information
                     </h2>
-                    <ul className="space-y-1 list-disc list-inside">
-                      <li className="list-none">{anime.favorites}</li>
-                    </ul>
+                    <div className="space-y-2 ">
+                    <div>
+                        <strong>Favorite By :</strong> {anime.favorites}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
