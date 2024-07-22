@@ -54,7 +54,7 @@ export default function ListAnimeAll() {
           <h1 className="my-8 text-3xl font-bold text-center text-white">
             Anime List
           </h1>
-          <div className="grid grid-cols-1 gap-8 px-5 pt-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-8 px-5 pt-16 md:grid-cols-3 lg:grid-cols-6">
             {animeList &&
               animeList.map((anime, index) => (
                 <Link
@@ -65,7 +65,7 @@ export default function ListAnimeAll() {
                   <img
                     src={anime.images.jpg.image_url}
                     alt={anime.title}
-                    className="object-cover object-center w-full lg:h-64 h-96"
+                    className="object-cover object-center w-full lg:h-64 h-48"
                   />
                   <div className="absolute bottom-0 left-0 right-0 py-2 text-center text-white bg-black bg-opacity-80">
                     <h3 className="text-base font-semibold">

@@ -20,7 +20,7 @@ export default function ListAnime({ animeList }) {
               View More
             </Link>
           </div>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6">
+          <div className="grid grid-cols-2 gap-8 md:grid-cols-3 lg:grid-cols-6">
             {limitedAnimeList &&
               limitedAnimeList.map((anime, index) => (
                 <Link
@@ -31,7 +31,7 @@ export default function ListAnime({ animeList }) {
                   <img
                     src={anime.images.webp.image_url}
                     alt={anime.title}
-                    className="object-cover object-center w-full lg:h-64 h-96"
+                    className="object-cover object-center w-full lg:h-64 h-48"
                   />
                   <div className="absolute bottom-0 left-0 right-0 py-2 text-center text-white bg-black bg-opacity-80">
                     <h3 className="text-base font-semibold">

@@ -159,6 +159,15 @@ const Header = () => {
                             Manga
                         </Link>
                         <Link
+                            to="/all/characters"
+                            className="block px-3 py-2 mt-1 text-base font-medium text-white rounded-md hover:bg-gray-50"
+                            onClick={() => {
+                                closeMenu();
+                            }}
+                        >
+                            Characters
+                        </Link>
+                        <Link
                             to="/reviews"
                             className="block px-3 py-2 mt-1 text-base font-medium text-white rounded-md hover:bg-gray-50"
                             onClick={() => {

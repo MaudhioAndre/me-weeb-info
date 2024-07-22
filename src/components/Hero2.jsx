@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 export default function Hero2() {
   return (
     <section
-      className="relative overflow-hidden bg-cover bg-top bg-no-repeat h-screen"
+      className="relative overflow-hidden bg-cover bg-top bg-no-repeat lg:h-full h-96"
       style={{
         backgroundImage: "url('https://radarbanyumas.disway.id/upload/6bbb8ca7129e647dc9cf26920e9e1e85.jpg')",
       }}
@@ -15,7 +15,7 @@ export default function Hero2() {
           <h2 className="text-2xl font-bold text-white sm:text-3xl md:text-5xl">
             Koe no Katachi
           </h2>
-          <p className="hidden max-w-lg text-white/80 md:mt-6 md:block md:text-lg md:leading-relaxed">
+          <p className="max-w-lg text-white/80 md:mt-6 md:block md:text-lg md:leading-relaxed">
             As a wild youth, elementary school student Shouya Ishida sought to
             beat boredom in the cruelest ways. When the deaf Shouko Nishimiya
             transfers into his class, Shouya and the rest of his class

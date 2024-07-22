@@ -18,7 +18,7 @@ export default function ListManga({ mangaList }) {
                 View More
               </Link>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
               {mangaList &&
                 mangaList.map((manga, index) => (
                   <Link
@@ -30,7 +30,7 @@ export default function ListManga({ mangaList }) {
                       src={manga.images.webp.image_url}
                       alt={manga.title}
                       loading="lazy"
-                      className="w-full lg:h-64 h-96  object-cover object-center"
+                      className="w-full lg:h-64 h-48 object-cover object-center"
                     />
                     <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 text-white text-center py-2">
                       <h3 className="text-base font-semibold">
