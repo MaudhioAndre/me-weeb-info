@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Hero from "../components/Hero";
 import ListAnime from "./ListAnime";
 import ListManga from "./ListManga";
@@ -16,15 +16,21 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import HelmetComponent from "../components/HelmetComponent";
 import Hero2 from "../components/Hero2";
+import Logs from "../components/log/Logs";
+import { UserContext } from "../components/Global";
 
 export default function Dashboard() {
   const [topAnime, setTopAnime] = useState([]);
   const [randomAnime, setRandomAnime] = useState([]);
   const [topCharacters, setTopCharacters] = useState([]);
   const [topManga, setTopManga] = useState([]);
+  const [content, setContent] = useState(false);
+
+  const { user } = useContext(UserContext);
 
   useEffect(() => {
     const fetchData = async () => {
+      Logs(setContent, user);
       try {
         // Fetch Top Anime data
         const topAnimeResponse = await fetchTopAnime();
@@ -41,7 +47,6 @@ export default function Dashboard() {
         // // Fetch Random Anime data
         const randomAnimeResponse = await fetchRandomAnime();
         setRandomAnime(randomAnimeResponse.data);
-
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -52,24 +57,23 @@ export default function Dashboard() {
 
   return (
     <>
-      <HelmetComponent
-        title={`MeWeeb | Anime Information, Reviews, News, Recommendations and Clubs{" "}`}
-
-        // keyword={
-        //   `Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, 
-        //   Anime Information, Manga, Anime Reviews, Anime News`
-        // }
-        canonLink={process.env.REACT_APP_LINK_URL}
-        description={`Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.`}
-      />
-
-      {/* <Header /> */}
-      <Hero2 />
-      {/* <Hero randomAnime={randomAnime} /> */}
-      <ListAnime animeList={topAnime} />
-      <ListManga mangaList={topManga} />
-      <ListCharacter characterList={topCharacters} />
-      {/* <Footer /> */}
+      {content && (
+        <>
+          <Header />
+          <main className="main-content">
+            <HelmetComponent
+              title={`MeWeeb | Anime Information, Reviews, News, Recommendations and Clubs{" "}`}
+              canonLink={process.env.REACT_APP_LINK_URL}
+              description={`Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.`}
+            />
+            <Hero2 />
+            <ListAnime animeList={topAnime} />
+            <ListManga mangaList={topManga} />
+            <ListCharacter characterList={topCharacters} />
+          </main>
+          <Footer />
+        </>
+      )}
     </>
   );
 }

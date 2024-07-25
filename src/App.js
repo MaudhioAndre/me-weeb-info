@@ -3,13 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import "./assets/style/front.scss";
 
-
+import Global from "./components/Global";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-
 // import CodeSplitting from "./components/CodeSplitting.tsx";
-
 // const Dashboard = CodeSplitting(() => import("./pages/Dashboard"));
 // const ListAnimeAll = CodeSplitting(() => import("./pages/ListAnimeAll"));
 // const ListCharacterAll = CodeSplitting(() => import("./pages/ListCharacterAll"));
@@ -36,14 +34,13 @@ import Magazines from "./pages/Magazines";
 import Clubs from "./pages/Clubs";
 import SearchPage from "./pages/SearchPage";
 
-
 function App() {
   return (
     <>
       <Router>
-        <Header />
-        <main className="main-content">
+        {/* <Header /> */}
 
+        <Global>
           <Routes>
             <Route path="*" element={<NotFound />}></Route>
             <Route path="/" element={<Dashboard />}></Route>
@@ -59,9 +56,8 @@ function App() {
             <Route path="/manga/:id" element={<DetailManga />} />
             <Route path="/characters/:id" element={<DetailCharacters />} />
           </Routes>
-          
-        </main>
-        <Footer />
+        </Global>
+        {/* <Footer /> */}
       </Router>
     </>
   );
