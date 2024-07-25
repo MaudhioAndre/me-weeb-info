@@ -24,8 +24,6 @@ import Footer from "./components/Footer";
 // const SearchPage = CodeSplitting(() => import("./pages/SearchPage"));
 
 import Dashboard from "./pages/Dashboard";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 import ListAnimeAll from "./pages/ListAnimeAll";
 import ListCharacterAll from "./pages/ListCharacterAll";
 import ListMangaAll from "./pages/ListMangaAll";
