@@ -25,7 +25,6 @@ export default function Dashboard() {
   const [topCharacters, setTopCharacters] = useState([]);
   const [topManga, setTopManga] = useState([]);
   const [content, setContent] = useState(false);
-
   const { user } = useContext(UserContext);
 
   useEffect(() => {

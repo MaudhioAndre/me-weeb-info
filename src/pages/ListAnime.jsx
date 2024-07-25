@@ -1,12 +1,10 @@
-import React, { useContext} from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import TruncateTitle from "../components/TruncateTitle";
-import { UserContext } from "../components/Global";
+// import { UserContext } from "../components/Global";
 
 export default function ListAnime({ animeList }) {
   const limitedAnimeList = animeList;
-
-  const {user, setUser} = useContext(UserContext);
   
 
   return (
@@ -15,7 +13,7 @@ export default function ListAnime({ animeList }) {
         <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
             <h2 className="text-xl font-bold text-white underline decoration-blue-400 underline-offset-4">
-              Top Anime {user} <button onClick={()=> setUser("kesini")}>Update</button>
+              Top Anime
             </h2>
             <Link
               to="/all/anime"
