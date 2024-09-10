@@ -11,8 +11,9 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
+import CodeSplitting from "../components/CodeSplitting";
 
-export default function ListAnimeAll() {
+function ListAnimeAll() {
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState(false);
@@ -94,6 +95,9 @@ export default function ListAnimeAll() {
           <Footer />
         </>
       )}
+      
     </>
   );
 }
+
+export default CodeSplitting(ListAnimeAll);

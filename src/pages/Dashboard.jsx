@@ -18,8 +18,9 @@ import HelmetComponent from "../components/HelmetComponent";
 import Hero2 from "../components/Hero2";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
+import CodeSplitting from "../components/CodeSplitting";
 
-export default function Dashboard() {
+function Dashboard() {
   const [topAnime, setTopAnime] = useState([]);
   const [randomAnime, setRandomAnime] = useState([]);
   const [topCharacters, setTopCharacters] = useState([]);
@@ -62,8 +63,9 @@ export default function Dashboard() {
           <main className="main-content">
             <HelmetComponent
               title={`MeWeeb | Anime Information, Reviews, News, Recommendations and Clubs{" "}`}
-              canonLink={process.env.REACT_APP_LINK_URL}
-              description={`Find all the latest anime information on me-weeb-info! We provide anime reviews, latest news, anime recommendations, and more.`}
+              keyword={"Anime Information, Anime Detail, Anime Recommendation, Anime Review"}
+              description={`Find all the latest anime information on me-weeb-info! 
+              We provide anime reviews, latest news, anime recommendations, and more.`}
             />
             <Hero2 />
             <ListAnime animeList={topAnime} />
@@ -76,3 +78,5 @@ export default function Dashboard() {
     </>
   );
 }
+
+export default CodeSplitting(Dashboard);
