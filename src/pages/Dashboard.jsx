@@ -18,9 +18,9 @@ import HelmetComponent from "../components/HelmetComponent";
 import Hero2 from "../components/Hero2";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
-import CodeSplitting from "../components/CodeSplitting";
+import CodeSplitting from "../components/CodeSplitting.tsx";
 
-function Dashboard() {
+export default function Dashboard() {
   const [topAnime, setTopAnime] = useState([]);
   const [randomAnime, setRandomAnime] = useState([]);
   const [topCharacters, setTopCharacters] = useState([]);
@@ -79,4 +79,4 @@ function Dashboard() {
   );
 }
 
-export default CodeSplitting(Dashboard);
+// export default CodeSplitting(Dashboard);

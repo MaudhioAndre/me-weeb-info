@@ -11,10 +11,10 @@ import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import CodeSplitting from "../components/CodeSplitting";
+// import CodeSplitting from "../components/CodeSplitting.tsx";
 
 
-function ListCharacterAll() {
+export default function ListCharacterAll() {
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState(false);
@@ -102,5 +102,5 @@ function ListCharacterAll() {
   );
 }
 
-export default CodeSplitting(ListCharacterAll);
+// export default CodeSplitting(ListCharacterAll);
 

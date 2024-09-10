@@ -22,7 +22,7 @@ import Footer from "./components/Footer";
 // const SearchPage = CodeSplitting(() => import("./pages/SearchPage"));
 
 import Dashboard from "./pages/Dashboard";
-import ListAnimeAll from "./pages/ListAnimeAll";
+import CompListAnimeAll from "./pages/ListAnimeAll";
 import ListCharacterAll from "./pages/ListCharacterAll";
 import ListMangaAll from "./pages/ListMangaAll";
 import DetailAnime from "./pages/DetailAnime";
@@ -47,7 +47,7 @@ function App() {
             <Route path="/magazines" element={<Magazines />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/recommendations" element={<Recommendations />} />
-            <Route path="/all/anime" element={<ListAnimeAll />} />
+            <Route path="/all/anime" element={<CompListAnimeAll />} />
             <Route path="/all/manga" element={<ListMangaAll />} />
             <Route path="/all/characters" element={<ListCharacterAll />} />
             <Route path="/anime/:id" element={<DetailAnime />} />

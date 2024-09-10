@@ -11,7 +11,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
-import CodeSplitting from "../components/CodeSplitting";
+import CodeSplitting from "../components/CodeSplitting.tsx";
 
 function ListAnimeAll() {
   const [animeList, setAnimeList] = useState([]);
@@ -100,4 +100,6 @@ function ListAnimeAll() {
   );
 }
 
-export default CodeSplitting(ListAnimeAll);
+export default function CompListAnimeAll(){
+  return CodeSplitting(ListAnimeAll)
+} 
