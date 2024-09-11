@@ -13,7 +13,7 @@ import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
 import CodeSplitting from "../components/CodeSplitting.tsx";
 
-function ListAnimeAll() {
+export default function ListAnimeAll() {
   const [animeList, setAnimeList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState(false);
@@ -100,6 +100,8 @@ function ListAnimeAll() {
   );
 }
 
-export default function CompListAnimeAll(){
-  return CodeSplitting(ListAnimeAll)
-} 
+// export default CodeSplitting(ListAnimeAll);
+
+// export default function CompListAnimeAll(){
+//   return CodeSplitting(ListAnimeAll)
+// } 
