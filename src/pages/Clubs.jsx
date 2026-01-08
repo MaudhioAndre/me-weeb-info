@@ -6,6 +6,7 @@ import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ScrollCountdown from "../components/ScrollCountdown";
 
 export default function Clubs() {
   const [reviews, setReviews] = useState([]);
@@ -32,6 +33,7 @@ export default function Clubs() {
 
     fetchReviews();
   }, []);
+
   return (
     <>
       {content && (
@@ -56,6 +58,7 @@ export default function Clubs() {
               <LoadingComp />
             ) : (
               <div>
+                <ScrollCountdown />
                 <h1 className="px-5 my-8 text-3xl font-bold text-center text-white">
                   Clubs
                 </h1>

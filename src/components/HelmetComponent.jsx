@@ -2,16 +2,14 @@ import React from "react";
 
 import { Helmet } from "react-helmet";
 
-export default function HelmetComponent({ title, keyword, description, canonLink }) {
+export default function HelmetComponent({ title, keyword, description }) {
   return (
     <>
       <Helmet>
-        <meta charSet="utf-8" />
         <title>{title}</title>
-        <meta name="robots" content="index,follow" />
         <meta name="keywords" content={keyword} />
         <meta name="description" content={description} />
-        canonLink && <link rel="canonical" href={canonLink} />
+        <meta name="robots" content="index,follow" />
       </Helmet>
     </>
   );

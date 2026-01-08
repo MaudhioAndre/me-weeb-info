@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
           <div className="mt-4 sm:mt-0">
             <p className="mt-12 text-sm text-center lg:text-right">
-              Maudhio Andre Wijaya 2024. All rights reserved.
+              MAW 2026. All rights reserved.
             </p>
           </div>
         </div>

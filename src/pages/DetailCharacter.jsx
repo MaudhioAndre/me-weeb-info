@@ -14,6 +14,8 @@ export default function DetailCharacters() {
   const [anime, setAnime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState(false);
+  const [pictures, setPictures] = useState([]);
+  const [voices, setVoices] = useState([]);
   const { user } = useContext(UserContext);
 
   console.log(anime);
@@ -26,6 +28,16 @@ export default function DetailCharacters() {
           `https://api.jikan.moe/v4/characters/${id}`
         );
         setAnime(response.data.data);
+
+        const picturesResponse = await axios.get(
+          `https://api.jikan.moe/v4/characters/${id}/pictures`
+        );
+        setPictures(picturesResponse.data.data);
+
+        const voicesResponse = await axios.get(
+          `https://api.jikan.moe/v4/characters/${id}/voices`
+        );
+        setVoices(voicesResponse.data.data);
       } catch (error) {
         console.error("Error fetching anime data:", error);
       }
@@ -93,6 +105,51 @@ export default function DetailCharacters() {
                       </div>
                     </div>
                   </div>
+
+                  {/* Pictures Section */}
+                  {pictures.length > 0 && (
+                    <div className="container mx-auto mt-8">
+                      <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
+                        Character Pictures
+                      </h2>
+                      <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
+                        {pictures.map((pic, index) => (
+                          <div key={index} className="overflow-hidden rounded-lg shadow-lg">
+                            <img
+                              src={pic.jpg.image_url}
+                              alt={`Character Picture ${index + 1}`}
+                              className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* Voice Actors Section */}
+                  {voices.length > 0 && (
+                    <div className="container mx-auto mt-8 mb-8">
+                      <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
+                        Voice Actors
+                      </h2>
+                      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                        {voices.map((voice, index) => (
+                          <div key={index} className="flex items-center p-4 space-x-4 bg-gray-800 rounded-lg">
+                            <img
+                              src={voice.person.images.jpg.image_url}
+                              alt={voice.person.name}
+                              className="object-cover w-16 h-16 rounded-full"
+                            />
+                            <div>
+                              <h3 className="font-semibold text-white">{voice.person.name}</h3>
+                              <p className="text-sm text-gray-400">{voice.language}</p>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
                 </div>
               </>
             )}

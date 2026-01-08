@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import TruncateTitle from "../components/TruncateTitle";
 import axios from "axios";
 import HelmetComponent from "../components/HelmetComponent";
 import LoadingComp from "../components/LoadingComp";
@@ -7,10 +8,15 @@ import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import ScrollCountdown from "../components/ScrollCountdown";
 
 export default function DetailAnime() {
-  const { id } = useParams();
+  const { idAnime } = useParams();
   const [anime, setAnime] = useState(null);
+  const [characters, setCharacters] = useState([]);
+  const [news, setNews] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
+  const [pictures, setPictures] = useState([]);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState(false);
   const { user } = useContext(UserContext);
@@ -22,7 +28,7 @@ export default function DetailAnime() {
       Logs(setContent, user);
       try {
         const response = await axios.get(
-          `https://api.jikan.moe/v4/anime/${id}`
+          `https://api.jikan.moe/v4/anime/${idAnime}/full`
         );
         setAnime(response.data.data);
       } catch (error) {
@@ -30,8 +36,27 @@ export default function DetailAnime() {
       }
     };
 
+    const fetchAdditionalData = async () => {
+      try {
+        const [charRes, newsRes, recRes, picRes] = await Promise.all([
+          axios.get(`https://api.jikan.moe/v4/anime/${idAnime}/characters`),
+          axios.get(`https://api.jikan.moe/v4/anime/${idAnime}/news`),
+          axios.get(`https://api.jikan.moe/v4/anime/${idAnime}/recommendations`),
+          axios.get(`https://api.jikan.moe/v4/anime/${idAnime}/pictures`),
+        ]);
+
+        setCharacters(charRes.data.data);
+        setNews(newsRes.data.data);
+        setRecommendations(recRes.data.data);
+        setPictures(picRes.data.data);
+      } catch (error) {
+        console.error("Error fetching additional anime data:", error);
+      }
+    };
+
     fetchAnime();
-  }, [id]);
+    fetchAdditionalData();
+  }, [idAnime, user]);
 
   if (loading) <LoadingComp />;
 
@@ -43,6 +68,7 @@ export default function DetailAnime() {
           <main className="main-content">
             {anime && (
               <>
+                <ScrollCountdown />
                 <HelmetComponent
                   title={`MeWeeb | ${anime.title_english} | Anime Detail`}
                   keyword={
@@ -147,7 +173,7 @@ export default function DetailAnime() {
                       </div>
                     </div>
                   </div>
-                  {anime.trailer.youtube_id !== null && (
+                  {anime.trailer.embed_url !== null && (
                     <div className="mt-8">
                       <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
                         Trailer
@@ -166,6 +192,113 @@ export default function DetailAnime() {
                       </div>
                     </div>
                   )}
+                </div>
+
+                {/* Characters Section */}
+                <div className="container mx-auto px-4 py-8">
+                  <h2 className="text-2xl font-semibold text-yellow-500 mb-4">
+                    Characters
+                  </h2>
+                  <div className="flex overflow-x-auto space-x-4 pb-4 scrollbar-thin scrollbar-thumb-yellow-500 scrollbar-track-gray-800">
+                    {characters.map((char) => (
+                      <div
+                        key={char.character.mal_id}
+                        className="flex-none w-40 bg-gray-900 rounded-lg overflow-hidden shadow-lg"
+                      >
+                        <img
+                          src={char.character.images.jpg.image_url}
+                          alt={char.character.name}
+                          className="w-full h-56 object-cover"
+                        />
+                        <div className="p-2">
+                          <h3 className="text-sm font-bold text-white truncate">
+                            {char.character.name}
+                          </h3>
+                          <p className="text-xs text-gray-400">{char.role}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* News Section */}
+                <div className="container mx-auto px-4 py-8 text-white">
+                  <h2 className="text-2xl font-semibold text-yellow-500 mb-4">
+                    News
+                  </h2>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {news.slice(0, 6).map((item) => (
+                      <div
+                        key={item.mal_id}
+                        className="bg-gray-900 p-4 rounded-lg shadow-lg flex flex-col justify-between"
+                      >
+                        <div>
+                          <a
+                            href={item.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-lg font-bold text-blue-400 hover:underline"
+                          >
+                            {item.title}
+                          </a>
+                          <p className="text-sm text-gray-400 mt-2">
+                            {new Date(item.date).toLocaleDateString()}
+                          </p>
+                          <p className="text-gray-300 mt-2 text-sm">
+                            {item.excerpt}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Pictures Section */}
+                <div className="container mx-auto px-4 py-8">
+                  <h2 className="text-2xl font-semibold text-yellow-500 mb-4">
+                    Pictures
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                    {pictures.map((pic, index) => (
+                      <div
+                        key={index}
+                        className="aspect-w-3 aspect-h-4 rounded-lg overflow-hidden"
+                      >
+                        <img
+                          src={pic.jpg.large_image_url}
+                          alt={`Anime Picture ${index}`}
+                          className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Recommendations Section */}
+                <div className="container mx-auto px-4 py-8">
+                  <h2 className="text-2xl font-semibold text-yellow-500 mb-4">
+                    Recommendations
+                  </h2>
+                  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {recommendations.slice(0, 12).map((rec) => (
+                      <Link
+                        to={`/anime/${rec.entry.mal_id}`}
+                        key={rec.entry.mal_id}
+                        className="relative rounded-lg overflow-hidden shadow-lg group block"
+                      >
+                        <img
+                          src={rec.entry.images.jpg.large_image_url}
+                          alt={rec.entry.title}
+                          className="w-full h-64 object-cover transform group-hover:scale-110 transition-transform duration-300"
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-80 p-2">
+                          <h3 className="text-sm font-bold text-white text-center">
+                             {TruncateTitle(rec.entry.title, 20)}
+                          </h3>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               </>
             )}

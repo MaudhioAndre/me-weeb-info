@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import TruncateTitle from "../components/TruncateTitle";
 import axios from "axios";
 import HelmetComponent from "../components/HelmetComponent";
 import LoadingComp from "../components/LoadingComp";
@@ -13,6 +14,11 @@ export default function DetailManga() {
   const [anime, setAnime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [content, setContent] = useState(false);
+  const [characters, setCharacters] = useState([]);
+  const [news, setNews] = useState([]);
+  const [recommendations, setRecommendations] = useState([]);
+  const [pictures, setPictures] = useState([]);
+  const [reviews, setReviews] = useState([]);
   const { user } = useContext(UserContext);
 
   console.log(anime);
@@ -33,8 +39,29 @@ export default function DetailManga() {
       }
     };
 
+    const fetchAdditionalData = async () => {
+      try {
+        const [charRes, newsRes, recRes, picRes, revRes] = await Promise.all([
+          axios.get(`https://api.jikan.moe/v4/manga/${id}/characters`),
+          axios.get(`https://api.jikan.moe/v4/manga/${id}/news`),
+          axios.get(`https://api.jikan.moe/v4/manga/${id}/recommendations`),
+          axios.get(`https://api.jikan.moe/v4/manga/${id}/pictures`),
+          axios.get(`https://api.jikan.moe/v4/manga/${id}/reviews`),
+        ]);
+
+        setCharacters(charRes.data.data);
+        setNews(newsRes.data.data);
+        setRecommendations(recRes.data.data);
+        setPictures(picRes.data.data);
+        setReviews(revRes.data.data);
+      } catch (error) {
+        console.error("Error fetching additional anime data:", error);
+      }
+    };
+
     fetchAnime();
-  }, [id]);
+    fetchAdditionalData();
+  }, [id, user]);
 
   if (loading) <LoadingComp />;
 
@@ -51,11 +78,10 @@ export default function DetailManga() {
                   keyword={
                     "Manga, Manga Info, Manga Wiki, Manga Detail, Manga Synopsis, Manga Information, Manga Trailer"
                   }
-                  description={`Dive into ${
-                    anime.title_english
-                  }, Get ready for ${anime.genres.map(
-                    (data) => data.name
-                  )} in this captivating story!`}
+                  description={`Dive into ${anime.title_english
+                    }, Get ready for ${anime.genres.map(
+                      (data) => data.name
+                    )} in this captivating story!`}
                 />
 
                 <div className="min-h-screen p-4 text-white bg-black">
@@ -131,6 +157,139 @@ export default function DetailManga() {
                           ))}
                         </div>
                       </div>
+                    </div>
+                  </div>
+
+                  {/* Characters Section */}
+                  <div className="container mx-auto mt-8">
+                    <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
+                      Characters
+                    </h2>
+                    <div className="flex pb-4 space-x-4 overflow-x-auto scrollbar-thin scrollbar-thumb-yellow-500 scrollbar-track-gray-800">
+                      {characters.map((char) => (
+                        <div
+                          key={char.character.mal_id}
+                          className="flex-none w-40 overflow-hidden bg-gray-900 rounded-lg shadow-lg"
+                        >
+                          <img
+                            src={char.character.images.jpg.image_url}
+                            alt={char.character.name}
+                            className="object-cover w-full h-56"
+                          />
+                          <div className="p-2">
+                            <h3 className="text-sm font-bold text-white truncate">
+                              {char.character.name}
+                            </h3>
+                            <p className="text-xs text-gray-400">{char.role}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* News Section */}
+                  <div className="container mx-auto mt-8 text-white">
+                    <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
+                      News
+                    </h2>
+                    <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
+                      {news.slice(0, 6).map((item) => (
+                        <div
+                          key={item.mal_id}
+                          className="flex flex-col justify-between p-4 bg-gray-900 rounded-lg shadow-lg"
+                        >
+                          <div>
+                            <a
+                              href={item.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-lg font-bold text-blue-400 hover:underline"
+                            >
+                              {item.title}
+                            </a>
+                            <p className="mt-2 text-sm text-gray-400">
+                              {new Date(item.date).toLocaleDateString()}
+                            </p>
+                            <p className="mt-2 text-sm text-gray-300">
+                              {item.excerpt}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Pictures Section */}
+                  <div className="container mx-auto mt-8">
+                    <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
+                      Pictures
+                    </h2>
+                    <div className="grid grid-cols-2 gap-4 md:grid-cols-4 lg:grid-cols-6">
+                      {pictures.map((pic, index) => (
+                        <div
+                          key={index}
+                          className="overflow-hidden rounded-lg aspect-w-3 aspect-h-4"
+                        >
+                          <img
+                            src={pic.jpg.large_image_url}
+                            alt={`Manga Picture ${index}`}
+                            className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Recommendations Section */}
+                  <div className="container mx-auto mt-8">
+                    <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
+                      Recommendations
+                    </h2>
+                    <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4">
+                      {recommendations.slice(0, 12).map((rec) => (
+                        <Link
+                          to={`/manga/${rec.entry.mal_id}`}
+                          key={rec.entry.mal_id}
+                          className="relative block overflow-hidden rounded-lg shadow-lg group"
+                        >
+                          <img
+                            src={rec.entry.images.jpg.large_image_url}
+                            alt={rec.entry.title}
+                            className="object-cover w-full h-64 transition-transform duration-300 transform group-hover:scale-110"
+                          />
+                          <div className="absolute left-0 right-0 bottom-0 p-2 bg-black bg-opacity-80">
+                            <h3 className="text-sm font-bold text-center text-white">
+                              {TruncateTitle(rec.entry.title, 20)}
+                            </h3>
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Reviews Section */}
+                  <div className="container mx-auto mt-8 mb-8">
+                    <h2 className="mb-4 text-2xl font-semibold text-yellow-500">
+                      Reviews
+                    </h2>
+                    <div className="space-y-4">
+                      {reviews.slice(0, 5).map((review) => (
+                        <div key={review.mal_id} className="p-4 bg-gray-900 rounded-lg shadow-lg">
+                          <div className="flex items-center mb-2">
+                            <img
+                              src={review.user.images.jpg.image_url}
+                              alt={review.user.username}
+                              className="w-10 h-10 mr-3 rounded-full"
+                            />
+                            <div>
+                              <h3 className="font-bold text-white">{review.user.username}</h3>
+                              <p className="text-xs text-gray-400">{new Date(review.date).toLocaleDateString()}</p>
+                            </div>
+                          </div>
+                          <p className="text-sm text-gray-300">{review.review.slice(0, 300)}...</p>
+                          <a href={review.url} target="_blank" rel="noreferrer" className="text-sm text-blue-400 hover:underline">Read more</a>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
