@@ -29,7 +29,7 @@ export default function Magazines() {
     };
 
     fetchMagazines();
-  }, []);
+  }, [user]);
 
   if (loading) <LoadingComp />;
 
@@ -62,6 +62,7 @@ export default function Magazines() {
                       <a
                         href={magazine.url}
                         target="_blank"
+                        rel="noreferrer"
                         className="block text-blue-500 hover:underline"
                       >
                         {magazine.count}

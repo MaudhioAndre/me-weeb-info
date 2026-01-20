@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Global from "./components/Global";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+// import Header from "./components/Header";
+// import Footer from "./components/Footer";
 
 import CodeSplitting from "./components/CodeSplitting.tsx";
 const Dashboard = CodeSplitting(() => import("./pages/Dashboard"));

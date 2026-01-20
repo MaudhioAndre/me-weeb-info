@@ -8,7 +8,7 @@ import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ScrollCountdown from "../components/ScrollCountdown";
+// import ScrollCountdown from "../components/ScrollCountdown";
 
 export default function DetailCharacters() {
   const { id } = useParams();
@@ -106,7 +106,7 @@ const CharacterInfo = ({ character }) => {
         <div className="mb-8 lg:w-1/3 lg:mb-0">
           <img
             src={character.images.jpg.image_url}
-            alt={`${character.name} - Character Portrait`}
+            alt={`${character.name}`}
             className="w-full mb-4 rounded-lg shadow-lg"
           />
         </div>
@@ -170,7 +170,7 @@ const PicturesSection = ({ pictures, character }) => {
           <div key={index} className="overflow-hidden rounded-lg shadow-lg">
             <img
               src={pic.jpg.image_url}
-              alt={`${character?.name || 'Character'} - Picture ${index + 1}`}
+              alt={`${character?.name || 'Character'}`}
               className="object-cover w-full h-full transition-transform duration-300 hover:scale-105"
             />
           </div>
@@ -193,7 +193,7 @@ const VoiceActorsSection = ({ voices }) => {
           <article key={index} className="flex items-center p-4 space-x-4 bg-gray-800 rounded-lg">
             <img
               src={voice.person.images.jpg.image_url}
-              alt={`${voice.person.name} - Voice Actor`}
+              alt={`${voice.person.name}`}
               className="object-cover w-16 h-16 rounded-full"
             />
             <div>

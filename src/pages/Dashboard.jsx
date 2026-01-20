@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useContext } from "react";
-import Hero from "../components/Hero";
+// import Hero from "../components/Hero";
 import ListAnime from "./ListAnime";
 import ListManga from "./ListManga";
 import ListCharacter from "./ListCharacter";
 
-import { BeatLoader } from "react-spinners";
+// import { BeatLoader } from "react-spinners";
 
 import {
-  fetchRandomAnime,
   fetchTopAnime,
   fetchTopCharacters,
   fetchTopManga,
@@ -18,11 +17,11 @@ import HelmetComponent from "../components/HelmetComponent";
 import Hero2 from "../components/Hero2";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
-import CodeSplitting from "../components/CodeSplitting.tsx";
+// import CodeSplitting from "../components/CodeSplitting.tsx";
 
 export default function Dashboard() {
   const [topAnime, setTopAnime] = useState([]);
-  const [randomAnime, setRandomAnime] = useState([]);
+  // const [randomAnime, setRandomAnime] = useState([]);
   const [topCharacters, setTopCharacters] = useState([]);
   const [topManga, setTopManga] = useState([]);
   const [content, setContent] = useState(false);
@@ -45,15 +44,15 @@ export default function Dashboard() {
         setTopCharacters(topCharactersResponse.data.data.slice(0, 6));
 
         // // Fetch Random Anime data
-        const randomAnimeResponse = await fetchRandomAnime();
-        setRandomAnime(randomAnimeResponse.data);
+        // const randomAnimeResponse = await fetchRandomAnime();
+        // setRandomAnime(randomAnimeResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [user]);
 
   return (
     <>

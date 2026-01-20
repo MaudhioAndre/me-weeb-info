@@ -139,7 +139,7 @@ const AnimeInfo = ({ anime }) => {
         <div className="mb-8 lg:w-1/3 lg:mb-0">
           <img
             src={anime.images.jpg.large_image_url}
-            alt={`${anime.title_english || anime.title} - Official Anime Poster`}
+            alt={`${anime.title_english || anime.title}`}
             className="w-full mb-4 rounded-lg shadow-lg"
           />
         </div>

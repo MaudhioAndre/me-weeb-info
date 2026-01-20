@@ -34,9 +34,9 @@ export default function Recommendations() {
     };
 
     fetchRecommendations();
-  }, []);
+  }, [user]);
 
-  if (content == false) {
+  if (content === false) {
     return null;
   }
 
@@ -68,6 +68,8 @@ export default function Recommendations() {
                       <a
                         href={recommendation.user.url}
                         className="text-blue-500 hover:underline"
+                        target="_blank"
+                        rel="noopener noreferrer"
                       >
                         {recommendation.user.username}
                       </a>{" "}
@@ -100,7 +102,7 @@ export default function Recommendations() {
             ))}
         </div>
       </main>
-      <footer />
+      <Footer />
     </>
   );
 }

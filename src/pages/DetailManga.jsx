@@ -8,7 +8,7 @@ import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ScrollCountdown from "../components/ScrollCountdown";
+// import ScrollCountdown from "../components/ScrollCountdown";
 
 export default function DetailManga() {
   const { id } = useParams();
@@ -138,7 +138,7 @@ const MangaInfo = ({ manga }) => {
         <div className="mb-8 lg:w-1/3 lg:mb-0">
           <img
             src={manga.images.jpg.large_image_url}
-            alt={`${manga.title_english || manga.title} - Official Manga Cover`}
+            alt={`${manga.title_english || manga.title}`}
             className="w-full mb-4 rounded-lg shadow-lg"
           />
         </div>
@@ -279,7 +279,7 @@ const PicturesSection = ({ pictures, manga }) => {
           >
             <img
               src={pic.jpg.large_image_url}
-              alt={`${manga?.title_english || manga?.title || 'Manga'} - Picture ${index + 1}`}
+              alt={`${manga?.title_english || manga?.title || 'Manga'}`}
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
             />
           </div>
@@ -368,7 +368,7 @@ const ReviewsSection = ({ reviews }) => {
             <div className="flex items-center mb-2">
               <img
                 src={review.user.images.jpg.image_url}
-                alt={`${review.user.username}'s profile picture`}
+                alt={`${review.user.username}`}
                 className="w-10 h-10 mr-3 rounded-full"
               />
               <div>

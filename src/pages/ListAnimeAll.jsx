@@ -10,7 +10,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
-import CodeSplitting from "../components/CodeSplitting.tsx";
+// import CodeSplitting from "../components/CodeSplitting.tsx";
 
 export default function ListAnimeAll() {
   const [animeList, setAnimeList] = useState([]);
@@ -35,7 +35,7 @@ export default function ListAnimeAll() {
     };
 
     getData();
-  }, []);
+  }, [user]);
 
   return (
     <>

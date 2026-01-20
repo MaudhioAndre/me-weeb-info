@@ -46,7 +46,7 @@ export default function SearchPage() {
     };
 
     fetchSearchResults();
-  }, [searchQuery]);
+  }, [searchQuery, user]);
 
   return (
     <>

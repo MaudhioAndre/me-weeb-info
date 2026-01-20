@@ -39,7 +39,7 @@ export default function ListCharacterAll() {
     };
 
     getData();
-  }, []);
+  }, [user]);
 
   return (
     <>

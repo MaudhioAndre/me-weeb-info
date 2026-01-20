@@ -37,7 +37,7 @@ export default function ListMangaAll() {
     };
 
     getData();
-  }, []);
+  }, [user]);
 
   return (
     <>

@@ -9,7 +9,7 @@ export default function Hero({ randomAnime }) {
   };
 
   return (
-    isObjectEmpty(randomAnime) == false && (
+    isObjectEmpty(randomAnime) === false && (
       <section
         className="relative h-screen overflow-hidden bg-top bg-no-repeat bg-cover"
         style={{
@@ -29,7 +29,7 @@ export default function Hero({ randomAnime }) {
             <div className="mt-4 sm:mt-8">
               <button
                 className="bg-gradient-to-r hover:scale-105 rounded-full from-red-500 to-blue-500 text-white font-semibold p-0.5"
-                // onClick={handleClick}
+              // onClick={handleClick}
               >
                 <Link to={`/anime/${randomAnime.data.mal_id}`}>
                   <span className="flex w-full p-2 text-white bg-black rounded-full">
@@ -45,12 +45,12 @@ export default function Hero({ randomAnime }) {
   );
 }
 
-{
-  /* <section className="hero-background" style={{background:`url(${randomAnime.data.images.webp.large_image_url})`}}>
+/* 
+  <section className="hero-background" style={{background:`url(${randomAnime.data.images.webp.large_image_url})`}}>
         <div className="hero-content">
         <h2 className="title-hero"> {randomAnime.data.titles[0].title}</h2>
         <p className="desc-hero">{randomAnime.data.synopsis}</p>
         <Link to={`/anime/${randomAnime.data.mal_id}`}><button className="btn_explore_now">Explore Now</button></Link>
         </div>
-      </section> */
-}
+      </section> 
+*/

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const REWARD_EXPIRE_MS = 2 * 60 * 1000;
 
@@ -55,7 +55,7 @@ function generateCode(numberCount, charCount) {
 
 export default function ScrollCountdown() {
   const { idAnime } = useParams();
-  const navigate = useNavigate();
+
 
   const [timeLeft, setTimeLeft] = useState(() => getRandomTime());
   const [isActive, setIsActive] = useState(false);
@@ -215,7 +215,8 @@ export default function ScrollCountdown() {
       clearTimeout(inactivityRef.current);
       clearInterval(intervalRef.current);
     };
-  }, []);
+    /* eslint-disable-next-line react-hooks/exhaustive-deps */
+  }, [completed]);
 
   const handleNext = () => {
     const progress = JSON.parse(localStorage.getItem("anime_progress"));

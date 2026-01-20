@@ -32,7 +32,7 @@ export default function Clubs() {
     };
 
     fetchReviews();
-  }, []);
+  }, [user]);
 
   return (
     <>

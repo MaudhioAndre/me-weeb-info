@@ -38,7 +38,7 @@ export default function Reviews() {
     };
 
     fetchReviews();
-  }, []);
+  }, [user]);
 
   return (
     <>
