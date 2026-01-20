@@ -26,13 +26,13 @@ const Header = () => {
             const response = await fetch(`https://api.jikan.moe/v4/anime?q=${searchQuery}`);
             const data = await response.json();
             if (data.data) {
-                setError('');
+                // setError('');
                 navigate(`/search?q=${searchQuery}`);
             } else {
-                setError('No results found');
+                // setError('No results found');
             }
         } catch (err) {
-            setError('Failed to fetch data');
+            // setError('Failed to fetch data');
         }
     };
 
