@@ -332,7 +332,8 @@ const PicturesSection = ({ pictures, anime }) => {
           >
             <img
               src={pic.jpg.large_image_url}
-              alt={`${anime?.title_english || anime?.title || 'Anime'} - Picture ${index + 1}`}
+              // alt={`${anime?.title_english || anime?.title || 'Anime'} - Picture ${index + 1}`}
+              alt={'anime picture'}
               className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
             />
           </div>
