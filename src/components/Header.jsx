@@ -42,8 +42,53 @@ const Header = () => {
         }
     };
 
+    const navSchema = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+            {
+                "@type": "SiteNavigationElement",
+                "position": 1,
+                "name": "Anime",
+                "description": "Browse all Anime",
+                "url": `${window.location.origin}/all/anime`
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 2,
+                "name": "Manga",
+                "description": "Browse all Manga",
+                "url": `${window.location.origin}/all/manga`
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 3,
+                "name": "Characters",
+                "description": "Browse all Characters",
+                "url": `${window.location.origin}/all/characters`
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 4,
+                "name": "Recommendations",
+                "description": "View Recommendations",
+                "url": `${window.location.origin}/recommendations`
+            },
+            {
+                "@type": "SiteNavigationElement",
+                "position": 5,
+                "name": "Reviews",
+                "description": "Read Reviews",
+                "url": `${window.location.origin}/reviews`
+            }
+        ]
+    };
+
     return (
         <header className="relative z-10 bg-transparent">
+            <script type="application/ld+json">
+                {JSON.stringify(navSchema)}
+            </script>
             <div className="flex items-center h-16 max-w-screen-xl gap-8 px-4 mx-auto sm:px-6 lg:px-0">
                 <Link to="/" className="block text-2xl text-center text-white md:text-left">
                     <span className="sr-only">Home</span>
@@ -75,16 +120,16 @@ const Header = () => {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="/reviews" className="text-white transition hover:text-white/75" onClick={closeMenu}>
-                                    Reviews
-                                </Link>
-                            </li>
-                            <li>
                                 <Link to="/recommendations" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Recommendations
                                 </Link>
                             </li>
                             <li>
+                                <Link to="/reviews" className="text-white transition hover:text-white/75" onClick={closeMenu}>
+                                    Reviews
+                                </Link>
+                            </li>
+                            {/* <li>
                                 <Link to="/magazines" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Magazines
                                 </Link>
@@ -93,7 +138,7 @@ const Header = () => {
                                 <Link to="/clubs" className="text-white transition hover:text-white/75" onClick={closeMenu}>
                                     Clubs
                                 </Link>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
 

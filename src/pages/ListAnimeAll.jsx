@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Helmet } from "react-helmet";
-
+import HelmetComponent from "../components/HelmetComponent";
 import axios from "axios";
 import { API_URL } from "../api/jikanApi";
 import TruncateTitle from "../components/TruncateTitle";
@@ -44,19 +43,11 @@ export default function ListAnimeAll() {
         <>
           <Header />
           <main className="main-content">
-            <Helmet>
-              <meta charSet="utf-8" />
-              <title>MeWeeb | Anime List</title>
-              <meta name="robots" content="index,follow" />
-              <meta
-                name="keywords"
-                content="Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, Anime Information, Manga, Anime Reviews, Anime News"
-              />
-              <meta
-                name="description"
-                content="This webpage provides a list of anime recommendations or a collection of your favorite anime shows."
-              />
-            </Helmet>
+            <HelmetComponent
+              title="MeWeeb | Anime List"
+              description="This webpage provides a list of anime recommendations or a collection of your favorite anime shows."
+              keyword="Anime, Anime Info, Anime Wiki, Anime Recommendation, Anime Clubs Tips, Anime Information, Manga, Anime Reviews, Anime News"
+            />
 
             {loading ? (
               <LoadingComp />
@@ -95,7 +86,7 @@ export default function ListAnimeAll() {
           <Footer />
         </>
       )}
-      
+
     </>
   );
 }

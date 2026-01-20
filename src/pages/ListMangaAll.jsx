@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Helmet } from "react-helmet";
+import HelmetComponent from "../components/HelmetComponent";
 
 import axios from "axios";
 import { API_URL } from "../api/jikanApi";
@@ -45,19 +45,11 @@ export default function ListMangaAll() {
         <>
           <Header />
           <main className="main-content">
-            <Helmet>
-              <meta charSet="utf-8" />
-              <title>MeWeeb | Manga List</title>
-              <meta name="robots" content="index,follow" />
-              <meta
-                name="keywords"
-                content="Manga, Manga Info, Manga Wiki, Manga Information, Manga"
-              />
-              <meta
-                name="description"
-                content="This webpage provides a list of Manga recommendations or a collection of your favorite Manga."
-              />
-            </Helmet>
+            <HelmetComponent
+              title="MeWeeb | Manga List"
+              description="This webpage provides a list of Manga recommendations or a collection of your favorite Manga."
+              keyword="Manga, Manga Info, Manga Wiki, Manga Information, Manga"
+            />
 
             {loading ? (
               <LoadingComp />

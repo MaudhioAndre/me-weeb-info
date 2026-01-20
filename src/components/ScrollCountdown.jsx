@@ -4,24 +4,16 @@ import { useNavigate, useParams } from "react-router-dom";
 const REWARD_EXPIRE_MS = 2 * 60 * 1000;
 
 const ID_ANIME_POOL = [
-  "52991",
-  "57555",
-  "5114",
-  "9253",
-  "61517",
-  "38524",
-  "15417",
-  "9969",
-  "60022",
-  "11061",
-  "39486",
-  "28977",
-  "820",
-  "41467",
-  "34096",
-  "43608",
-  "42938",
-  "4181",
+  "1", "5", "6", "15", "16", "18", "19", "20", "21", "30",
+  "33", "43", "47", "50", "101", "120", "132", "145", "150", "164",
+  "199", "205", "226", "245", "457", "511", "523", "777", "820", "850",
+  "1535", "1575", "2001", "2167", "2904", "3000", "4181", "4224", "4898", "5040",
+  "5114", "6547", "6702", "7785", "8074", "9253", "9756", "9969", "10087", "11061",
+  "11757", "13601", "14719", "15335", "15417", "16498", "17389", "18671", "19815", "21033",
+  "23273", "28977", "30276", "30503", "31240", "32281", "32937", "33352", "34096", "34599",
+  "35839", "37403", "37510", "37521", "38000", "38524", "39486", "39535", "40028", "40748",
+  "41467", "42210", "42938", "43608", "44511", "48583", "49596", "50002", "51009", "51145",
+  "52034", "52991", "53887", "54595", "57555", "58000", "60022", "60371", "61000", "61517"
 ];
 
 const TOTAL_PAGE = 10;
@@ -36,12 +28,29 @@ function getRandomTime(min = 5, max = 10) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function generateCode(length = 12) {
-  const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-  return Array.from(
-    { length },
-    () => chars[Math.floor(Math.random() * chars.length)]
-  ).join("");
+function generateCode(numberCount, charCount) {
+  const numbers = "0123456789";
+  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+  let result = [];
+
+  // Ambil angka random
+  for (let i = 0; i < numberCount; i++) {
+    result.push(numbers[Math.floor(Math.random() * numbers.length)]);
+  }
+
+  // Ambil huruf random
+  for (let i = 0; i < charCount; i++) {
+    result.push(letters[Math.floor(Math.random() * letters.length)]);
+  }
+
+  // Acak posisi (Fisher-Yates Shuffle)
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+
+  return result.join("");
 }
 
 export default function ScrollCountdown() {
@@ -166,7 +175,7 @@ export default function ScrollCountdown() {
 
       let code = localStorage.getItem("anime_reward");
       if (!code) {
-        code = generateCode();
+        code = generateCode(4, 4);
         localStorage.setItem("anime_reward", code);
       }
 

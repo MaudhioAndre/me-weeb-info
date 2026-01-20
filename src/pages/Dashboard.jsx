@@ -66,7 +66,25 @@ export default function Dashboard() {
               keyword={"Anime Information, Anime Detail, Anime Recommendation, Anime Review"}
               description={`Find all the latest anime information on me-weeb-info! 
               We provide anime reviews, latest news, anime recommendations, and more.`}
-            />
+            >
+              <script type="application/ld+json">
+                {JSON.stringify({
+                  "@context": "https://schema.org",
+                  "@type": "WebSite",
+                  "name": "MeWeeb",
+                  "alternateName": ["MeWeeb Info", "MeWeeb Site"],
+                  "url": window.location.origin,
+                  "potentialAction": {
+                    "@type": "SearchAction",
+                    "target": {
+                      "@type": "EntryPoint",
+                      "urlTemplate": `${window.location.origin}/search?q={search_term_string}`
+                    },
+                    "query-input": "required name=search_term_string"
+                  }
+                })}
+              </script>
+            </HelmetComponent>
             <Hero2 />
             <ListAnime animeList={topAnime} />
             <ListManga mangaList={topManga} />

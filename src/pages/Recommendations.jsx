@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Helmet } from "react-helmet";
+import HelmetComponent from "../components/HelmetComponent";
 import LoadingComp from "../components/LoadingComp";
 import TruncateTitle from "../components/TruncateTitle";
 import Header from "../components/Header";
@@ -48,19 +48,11 @@ export default function Recommendations() {
     <>
       <Header />
       <main className="main-content">
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>MeWeeb | Anime & Manga Recommendations</title>
-          <meta name="robots" content="index,follow" />
-          <meta
-            name="keywords"
-            content="Anime, Manga, Anime Recommendations, Anime Information, Manga Information"
-          />
-          <meta
-            name="description"
-            content="Looking for your next anime or manga obsession? We've got you covered! From pulse-pounding action and epic adventures to slice-of-life stories and tear-jerking dramas, discover a vast library of recommendations tailored to every taste."
-          />
-        </Helmet>
+        <HelmetComponent
+          title="MeWeeb | Anime & Manga Recommendations"
+          description="Looking for your next anime or manga obsession? We've got you covered! From pulse-pounding action and epic adventures to slice-of-life stories and tear-jerking dramas, discover a vast library of recommendations tailored to every taste."
+          keyword="Anime, Manga, Anime Recommendations, Anime Information, Manga Information"
+        />
 
         <h1 className="my-8 text-3xl font-bold text-center text-white">
           Anime & Manga Recommendations

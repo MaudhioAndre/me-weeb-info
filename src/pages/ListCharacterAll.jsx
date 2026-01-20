@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 
-import { Helmet } from "react-helmet";
+import HelmetComponent from "../components/HelmetComponent";
 
 import axios from "axios";
 import { API_URL } from "../api/jikanApi";
@@ -47,19 +47,11 @@ export default function ListCharacterAll() {
         <>
           <Header />
           <main className="main-content">
-            <Helmet>
-              <meta charSet="utf-8" />
-              <title>MeWeeb | Anime Character List</title>
-              <meta name="robots" content="index,follow" />
-              <meta
-                name="keywords"
-                content="Anime Character, Anime Character Info, Anime Character Wiki, Anime Character Information"
-              />
-              <meta
-                name="description"
-                content="This webpage provides a list of Anime Character recommendations or a collection of your Anime Character."
-              />
-            </Helmet>
+            <HelmetComponent
+              title="MeWeeb | Anime Character List"
+              description="This webpage provides a list of Anime Character recommendations or a collection of your Anime Character."
+              keyword="Anime Character, Anime Character Info, Anime Character Wiki, Anime Character Information"
+            />
 
             {loading ? (
               <LoadingComp />

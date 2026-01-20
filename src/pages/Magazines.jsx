@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 
-import { Helmet } from "react-helmet";
+import HelmetComponent from "../components/HelmetComponent";
 import LoadingComp from "../components/LoadingComp";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
@@ -39,19 +39,11 @@ export default function Magazines() {
         <>
           <Header />
           <main className="main-content">
-            <Helmet>
-              <meta charSet="utf-8" />
-              <title>MeWeeb | Magazines</title>
-              <meta name="robots" content="index,follow" />
-              <meta
-                name="keywords"
-                content="Anime, Manga, Anime & Manga Magazines"
-              />
-              <meta
-                name="description"
-                content="Obsessed with anime and manga? Fuel your fandom with our magazines! Packed with exclusive interviews, in-depth reviews, and eye-catching visuals, discover the latest news and trends surrounding your favorite characters and series."
-              />
-            </Helmet>
+            <HelmetComponent
+              title="MeWeeb | Magazines"
+              description="Obsessed with anime and manga? Fuel your fandom with our magazines! Packed with exclusive interviews, in-depth reviews, and eye-catching visuals, discover the latest news and trends surrounding your favorite characters and series."
+              keyword="Anime, Manga, Anime & Manga Magazines"
+            />
 
             <div className="min-h-screen px-6 py-12 text-white bg-black">
               <h1 className="mb-16 text-3xl font-bold text-center text-white">

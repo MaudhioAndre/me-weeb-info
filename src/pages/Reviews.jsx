@@ -6,7 +6,7 @@ import { faStar as faStarKosong } from "@fortawesome/free-regular-svg-icons";
 
 import Rating from "react-rating";
 
-import { Helmet } from "react-helmet";
+import HelmetComponent from "../components/HelmetComponent";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LoadingComp from "../components/LoadingComp";
@@ -46,19 +46,11 @@ export default function Reviews() {
         <>
           <Header />
           <main className="main-content">
-            <Helmet>
-              <meta charSet="utf-8" />
-              <title>MeWeeb | Anime & Manga Reviews</title>
-              <meta name="robots" content="index,follow" />
-              <meta
-                name="keywords"
-                content="Anime, Manga, Anime Info, Anime Information, Anime Reviews, Manga Reviews"
-              />
-              <meta
-                name="description"
-                content="Dive into the world of anime and manga with insightful reviews that explore captivating stories, stunning visuals, and unforgettable characters. Discover must-watch shows and must-read comics, whether you're a seasoned otaku or a curious newcomer."
-              />
-            </Helmet>
+            <HelmetComponent
+              title="MeWeeb | Anime & Manga Reviews"
+              description="Dive into the world of anime and manga with insightful reviews that explore captivating stories, stunning visuals, and unforgettable characters. Discover must-watch shows and must-read comics, whether you're a seasoned otaku or a curious newcomer."
+              keyword="Anime, Manga, Anime Info, Anime Information, Anime Reviews, Manga Reviews"
+            />
 
             {loading ? (
               <LoadingComp />

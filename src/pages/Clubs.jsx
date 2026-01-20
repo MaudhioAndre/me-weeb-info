@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 
-import { Helmet } from "react-helmet";
+import HelmetComponent from "../components/HelmetComponent";
 import LoadingComp from "../components/LoadingComp";
 import Logs from "../components/log/Logs";
 import { UserContext } from "../components/Global";
@@ -40,19 +40,11 @@ export default function Clubs() {
         <>
           <Header />
           <main className="main-content">
-            <Helmet>
-              <meta charSet="utf-8" />
-              <title>MeWeeb | Anime & Manga Fanclubs</title>
-              <meta name="robots" content="index,follow" />
-              <meta
-                name="keywords"
-                content="Anime, Manga, Anime & Manga Fanclubs, Anime Fanclub, Manga Fanclub"
-              />
-              <meta
-                name="description"
-                content="Dive into the world of anime and manga! This fan club is your hub for all things otaku, connecting you with fellow fans to discuss your favorite shows, characters, and even cosplay adventures!"
-              />
-            </Helmet>
+            <HelmetComponent
+              title="MeWeeb | Anime & Manga Fanclubs"
+              description="Dive into the world of anime and manga! This fan club is your hub for all things otaku, connecting you with fellow fans to discuss your favorite shows, characters, and even cosplay adventures!"
+              keyword="Anime, Manga, Anime & Manga Fanclubs, Anime Fanclub, Manga Fanclub"
+            />
 
             {loading ? (
               <LoadingComp />
